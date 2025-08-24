@@ -1,0 +1,95 @@
+/* Webfont: Extra-Bold, Heavy */
+@font-face {
+    font-family: "Lato";
+    font-weight: 800;
+    font-style: normal;
+    font-display: block;
+    src:
+        local(""),
+        url("/fonts/Lato/Lato-Heavy.woff2") format("woff2"),
+        url("/fonts/Lato/Lato-Heavy.woff") format("woff");
+}
+
+/* Webfont: Lato-Bold */
+@font-face {
+    font-family: "Lato";
+    font-weight: 700;
+    font-style: normal;
+    font-display: block;
+    src:
+        local(""),
+        url("/fonts/Lato/Lato-Bold.woff2") format("woff2"),
+        url("/fonts/Lato/Lato-Bold.woff") format("woff");
+}
+
+/* Webfont: Lato-Semibold */
+@font-face {
+    font-family: "Lato";
+    font-weight: 600;
+    font-style: normal;
+    font-display: block;
+    src:
+        local(""),
+        url("/fonts/Lato/Lato-Semibold.woff2") format("woff2"),
+        url("/fonts/Lato/Lato-Semibold.woff") format("woff");
+}
+
+/* Webfont: Lato-Medium */
+@font-face {
+    font-family: "Lato";
+    font-weight: 500;
+    font-style: normal;
+    font-display: block;
+    src:
+        local(""),
+        url("/fonts/Lato/Lato-Medium.woff2") format("woff2"),
+        url("/fonts/Lato/Lato-Medium.woff") format("woff");
+}
+
+/* Webfont: Lato-Regular */
+@font-face {
+    font-family: "Lato";
+    font-weight: 400;
+    font-style: normal;
+    font-display: block;
+    src:
+        local(""),
+        url("/fonts/Lato/Lato-Regular.woff2") format("woff2"),
+        url("/fonts/Lato/Lato-Regular.woff") format("woff");
+}
+
+/* Webfont: Lato-Light */
+@font-face {
+    font-family: "Lato";
+    font-weight: 300;
+    font-style: normal;
+    font-display: block;
+    src:
+        local(""),
+        url("/fonts/Lato/Lato-Light.woff2") format("woff2"),
+        url("/fonts/Lato/Lato-Light.woff") format("woff");
+}
+
+/* Webfont: Lato-Italic */
+@font-face {
+    font-family: "Lato";
+    font-weight: 400;
+    font-style: italic;
+    font-display: block;
+    src:
+        local(""),
+        url("/fonts/Lato/Lato-Italic.woff2") format("woff2"),
+        url("/fonts/Lato/Lato-Italic.woff") format("woff");
+}
+
+/* Webfont: Lato-LightItalic */
+@font-face {
+    font-family: "Lato";
+    font-weight: 300;
+    font-style: italic;
+    font-display: block;
+    src:
+        local(""),
+        url("/fonts/Lato/Lato-LightItalic.woff2") format("woff2"),
+        url("/fonts/Lato/Lato-LightItalic.woff") format("woff");
+}

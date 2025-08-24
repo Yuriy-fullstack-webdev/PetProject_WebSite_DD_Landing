@@ -1,0 +1,19 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* h2,h3,h4,h5,h6,dl*/
+
+h1,
+p{
+  margin-block: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding-left: 0;
+  margin-block: 0;
+}

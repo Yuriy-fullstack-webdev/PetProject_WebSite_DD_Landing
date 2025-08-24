@@ -1,0 +1,81 @@
+@import url("./normalize.css");
+@import url("./fonts.css");
+:root {
+    /*Color*/
+    /*primary - головний        --color-primary: #252237 */
+    /*secondary - другорядний   --color-secondary:*/
+    /*tertiary - 3й             --color-tertiary:
+    /*accent - акцентний        --color-accent: */
+    /*hover -                   --color-hover:*/
+    /*subsidiary- додатковий    --color-subsidiary: */
+    /*success - успіх*/
+    /*error - помилка*/
+    /*info - */
+    /*wsrning - помилка*/
+
+    /*Fonts*/
+    /*primary - головний        --font-family-primary: */
+    /*secondary - другорядний   --color-family-secondary:*/
+    /*tertiary - 3й             --color--family-tertiary:*/
+
+
+    /*Color*/
+    --color-primary: #252237;
+
+    --color-black: #000000;
+    --color-white: #ffffff;
+    --color-gray-100: #fefefe;
+    --color-gray-200: #efefef;
+    --color-gray-300: #d1ceff;
+
+    --color-dark-1:#292839;
+    --color-dark-2: #3e3c54;
+    --color-dark-3: #4c495e;
+
+    --color-accent1: #e6a823;
+    --color-accent2: #ff9f1c;
+    --color-accent3: #239ee8;
+    --color-accent4: #bf52e8;
+    --color-accent5: #766CF5;
+
+    /*Font*/
+    --font-family-primary: "Lato", "Poppins", "Roboto", "Open Sans", sans-serif;
+    --font-size-primary: 14px; /* 14px */
+
+    --font-line-height-s: 1.1875; /* 19\16 */
+    --font-line-height-m: 1.2;/* 24\20  22\18 ????? 43\36 ??????*/
+    --font-line-height-l: 1.5625; /* 25\16 */
+    --font-line-height-xl: 1.7; /* 34\20 */
+
+    /*Сontainer*/
+    --width-container: 1150px;
+
+    --size-desktop: 1280px;
+    --size-tablet: 768px;
+    --size-mob-m: 460px;
+    --size-mob: 360px;
+
+    --padding-desktop: 68px;
+    --padding-tablet: 40px;
+    --padding-mob: 24px;
+    --padding-container: clamp(var(--padding-mob), 5.208vw, var(--padding-desktop));
+
+    --margin-desktop-wrap: 30px;
+    --margin-tablet-wrap: 0px;
+    --margin-wrap: clamp(var(--margin-tablet-wrap), -45px + 5.8594vw, var(--margin-desktop-wrap));
+}
+
+.container {
+    margin-inline: auto;
+    max-width: var(--width-container);
+    width: 100%;
+    padding: 0 var(--padding-container);
+}
+
+.bg-primary {
+    background-color: var(--color-primary);
+}
+
+.margin-wrap {
+    margin-inline: var(--margin-wrap);
+}

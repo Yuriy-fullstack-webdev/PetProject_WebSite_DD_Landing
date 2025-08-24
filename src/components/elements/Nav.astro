@@ -1,0 +1,22 @@
+---
+const NavLinks = [
+  { title: "Про нас", href: "about" },
+  { title: "Портфоліо", href: "portfolio" },
+  { title: "Вартість", href: "price" },
+  { title: "Контакти", href: "footer" },
+];
+---
+
+<nav class="menu">
+  <ul class="menu-list">
+    {
+      NavLinks.map((item) => (
+        <li class="menu-item">
+          <a class="menu-item__link" href={`#${item.href}`} title={item.title}>
+            {item.title}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>

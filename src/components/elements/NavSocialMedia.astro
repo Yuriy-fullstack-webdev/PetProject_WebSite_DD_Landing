@@ -1,0 +1,48 @@
+---
+import { Icon } from "astro-icon/components";
+
+const IconLinks = [
+  { name: "icon-instagram", href: "#" },
+  { name: "icon-telegram", href: "#" },
+  { name: "icon-telephone", href: "#" },
+];
+---
+
+<nav class="nav-social">
+  <ul class="nav-items">
+<li class="nav-item">
+    <a class="nav-item__link" href=""><Icon name="icon-instagram" class="icon"/></a>
+</li>
+<li>
+    <a href=""><Icon name="icon-telegram" class="icon"/></a>
+</li>
+<li>
+    <a href=""><Icon name="icon-telephone" class="icon"/></a>
+</li>
+  </ul>
+</nav>
+
+<style>
+    .nav-items {
+        display: flex;
+        align-items: center;
+
+    }
+
+    .nav-item {
+        display: block;
+        font-size: 1.5rem;
+        line-height: 1;
+    padding: 8px;    
+    }
+
+    .nav-item__link{
+        display: inherit;
+font-size: inherit;
+line-height: inherit;
+    }
+
+.icon {
+    color: var(--color-accent5);
+}
+</style>

@@ -1,0 +1,93 @@
+---
+export interface HeaderData {
+  supertitle?: string; // Необязательный
+  title: string;
+  subtitle: string;
+  color?: 'white' | 'black' | string; // Необязательный, с дефолтом.
+  position?: 'left' | 'center' | string; // Необязательный, с дефолтом.
+}
+
+interface Props {
+  data: HeaderData[];
+}
+
+const { data } = Astro.props;
+
+//Если массив пустой или элемент отсутствует, используем пустой объект для безопасной деструктуризации
+const headerItem = data?.[0] || {};
+
+const {
+  supertitle,
+  title,
+  subtitle,
+  color = "white", // дефолтное значение 'white'
+  position = "left", // дефолтное значение 'left'
+} = headerItem;
+---
+
+<header class:list={['header-block', `header-block--${position}`]} data-color={color}>
+  {supertitle && <p class="header-supertitle">{supertitle}</p>}
+  <h2 class="header-title title-h2">{title}</h2>
+  <p class="header-subtitle">{subtitle}</p>
+</header>
+
+<style>
+  .header-block {
+    letter-spacing: var(--spacing-s);
+
+  }
+
+  .header-block--left :is(p, h2) {
+    text-align: left;
+  }
+
+  .header-block--center :is(p, h2) {
+    text-align: center;
+  }
+
+  .header-supertitle {
+    font-weight: 500;
+    font-size: var(--font-size-20-16);
+  }
+
+  .header-title {
+    margin-top: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .header-subtitle {
+    font-weight: 400;
+    font-size: var(--font-size-18-16);
+  }
+
+  [data-color="white"] .header-supertitle {
+    color: var(--text-accent3);
+  }
+
+  [data-color="white"] .header-title {
+    color: var(--text-gray-200);
+  }
+
+  [data-color="white"] .header-subtitle {
+    color: var(--text-gray-300);
+  }
+
+  [data-color="black"] .header-supertitle {
+    color: var(--text-accent5);
+  }
+
+  [data-color="black"] .header-title {
+    color: var(--text-primary);
+  }
+
+  [data-color="black"] .header-subtitle {
+    color: var(--text-dark-3);
+  }
+
+  @media (max-width: 767px) {
+    .header-supertitle,
+    .header-subtitle {
+      line-height: var(--line-height-s);
+    }
+  }
+</style>

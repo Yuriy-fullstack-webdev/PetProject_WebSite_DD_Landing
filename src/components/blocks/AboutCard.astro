@@ -1,0 +1,61 @@
+---
+import { Image } from "astro:assets";
+import imgSrc from "../../assets/images/about/img1.webp"
+
+---
+<section class="card">
+    <Image
+      class="card-img"
+      src={imgSrc}
+      alt="Icon"
+      widths={[64, 80]}
+      sizes="(max-width: 768px) 64px, (min-width: 767px) 80px"
+    />
+    <h2 class="card-title title-h2">{title}</h2>
+    <!-- <p class="card-text">
+      3% споживачів починають пошук товарів чи послуг онлайн, незалежно від того, де вони планують здійснити покупку
+    </p>
+    <p class="card-text">
+      Бізнеси з веб-сайтами залучають в середньому на 70% більше клієнтів, ніж без онлайн-присутності
+    </p>
+    <p class="card-text">
+      81% споживачів досліджують товар/послугу в інтернеті перед покупкою, що робить сайт важливим каналом
+      інформування
+    </p> -->
+    <p class="card-text">{text}</p>
+  </section>
+
+
+<style>
+  .card {
+    min-width: 285px;
+    max-width: 353px;  
+    padding: 1rem;
+    background-color: red;
+  }
+
+  .card-img {
+    width: clamp(4rem, 3.135rem + 3.008vw, 5rem);
+    height: auto;
+  }
+
+  .card-title {
+    color: var(--text-gray-200);
+    margin-top: 4px;
+    margin-bottom: 24px;
+    font-size: clamp(1.25rem, 1.716rem + -0.752vw, 1.5rem);
+  }
+
+  .card-text {
+    font-size: var(--font-size-16-14);
+    color: var(--text-gray-300);
+    line-height: var(--line-height-lg);
+  }
+
+
+  @media (max-width: 767px) {
+    .card-text {
+      line-height: var(--line-height-l);
+    }
+  }
+</style>

@@ -3,9 +3,9 @@ import "../styles/normalize.css";
 import "../styles/global.css";
 
 interface Props {
-	title: string;
-	author: string;
-	description: string;
+  title: string;
+  author: string;
+  description: string;
 }
 
 const { title, author, description } = Astro.props;
@@ -13,30 +13,31 @@ const { title, author, description } = Astro.props;
 
 <!doctype html>
 <html lang="uk">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<meta name="author" content={author}>
-		<meta name="copyright" content={author}>		
-		<title>{title}</title>
-		<meta name="description" content={description} />		
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="author" content={author} />
+    <meta name="copyright" content={author} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <slot />
+  </body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-		text-rendering: optimizeLegibility;
-		font-family: var(--font-family-primary);
-		text-rendering: optimizeLegibility;
-	}
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-m);
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
 </style>

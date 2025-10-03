@@ -1,9 +1,181 @@
 ---
+import HeaderBlock from "./blocks/HeaderBlock.astro";
 
+const HeaderData = [
+  {
+    supertitle: "Чому обирають нас?",
+    title: "Ми Пропонуємо Ефективні Рішення для Вашого Бізнесу",
+    subtitle:
+      "У 2025 році важко уявити бренд, який не має власного сайту, який допомагає досягати конкретних бізнес-цілей. Ефективний сайт може вирішити багато питань за рахунок",
+    color: "white", // Необязательный, с дефолтом "white" | "black";
+    position: "left", // Необязательный, с дефолтом "left" | "center";
+  },
+];
+
+// Работа с изображением потом переедет в карточку
+import { Image } from "astro:assets";
+import img_1_Src from "../assets/images/about/img1.webp";
+import img_2_Src from "../assets/images/about/img2.webp";
+import img_3_Src from "../assets/images/about/img3.webp";
+
+// СДЕЛАТЬ КОМПОНЕНТ AboutCard + чтение коллекции
+// import AboutCard from "./blocks/AboutCard.astro";
+
+// import { defineCollection, z } from 'astro:content';
+// import { glob, file } from 'astro/loaders';
+
+// const cards = defineCollection({
+// "content"
+//   schema: z.object({
+//     title: z.string(),
+//     imgSrc: z.string()
+//   })
+// });
+
+// export const collections = { cards };
 ---
 
-<section id="about">
-  <h1>Чому обирають нас?</h1>
+<section id="about" class="about">
+  <div class="container">
+    <HeaderBlock data={HeaderData} />
+    <main class="cards">
+      <!-- 1 --- <AboutCard /> -->
+      <section class="card">
+        <Image
+          class="card-img"
+          src={img_1_Src}
+          alt="Icon"
+          widths={[64, 80]}
+          sizes="(max-width: 768px) 64px, (min-width: 767px) 80px"
+        />
+        <h2 class="card-title title-h2">Розширення охоплення аудиторії та географії продажів</h2>
+        <article class="card-content">
+          <p class="card-content__text">
+            3% споживачів починають пошук товарів чи послуг онлайн, незалежно від того, де вони планують здійснити
+            покупку
+          </p>
+          <p class="card-content__text">
+            Бізнеси з веб-сайтами залучають в середньому на 70% більше клієнтів, ніж без онлайн-присутності
+          </p>
+          <p class="card-content__text">
+            81% споживачів досліджують товар/послугу в інтернеті перед покупкою, що робить сайт важливим каналом
+            інформування
+          </p>
+        </article>
+      </section>
+      <!-- 2 --- <AboutCard /> -->
+      <section class="card">
+        <Image
+          class="card-img"
+          src={img_2_Src}
+          alt="Icon"
+          widths={[64, 80]}
+          sizes="(max-width: 768px) 64px, (min-width: 767px) 80px"
+        />
+        <h2 class="card-title title-h2">Зниження операційних витрат та автоматизація процесів</h2>
+        <article class="card-content">
+          <p class="card-content__text">
+            Автоматизація процесу обробки замовлень через сайт знижує витрати на персонал до 30%
+          </p>
+          <p class="card-content__text">
+            Самообслуговування клієнтів через сайт (FAQ, онлайн-підтримка) зменшує кількість звернень до служби
+            підтримки на 40-60%
+          </p>
+          <p class="card-content__text">
+            Інтеграція CRM з сайтом підвищує ефективність продажів на 29% та скорочує цикл продажів на 8-14%
+          </p>
+        </article>
+      </section>
+      <!-- 3 --- <AboutCard /> -->
+      <section class="card">
+        <Image
+          class="card-img"
+          src={img_3_Src}
+          alt="Icon"
+          widths={[64, 80]}
+          sizes="(max-width: 768px) 64px, (min-width: 767px) 80px"
+        />
+        <h2 class="card-title title-h2">Розширення охоплення аудиторії та географії продажів</h2>
+        <article class="card-content">
+          <p class="card-content__text">
+            3% споживачів починають пошук товарів чи послуг онлайн, незалежно від того, де вони планують здійснити
+            покупку
+          </p>
+          <p class="card-content__text">
+            Бізнеси з веб-сайтами залучають в середньому на 70% більше клієнтів, ніж без онлайн-присутності
+          </p>
+          <p class="card-content__text">
+            81% споживачів досліджують товар/послугу в інтернеті перед покупкою, що робить сайт важливим каналом
+            інформування
+          </p>
+        </article>
+      </section>
+    </main>
+  </div>
 </section>
 
-<style></style>
+<style>
+  .about {
+    padding-top: clamp(2rem, -0.162rem + 7.519vw, 4.5rem); /** 992-72 460-32*/
+    padding-bottom: clamp(1.5rem, -5.309rem + 23.684vw, 9.375rem); /** 992-150 460-24*/
+    background-color: var(--bg-primary);
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(auto, 353px));
+    justify-content: space-between;
+    gap: var(--gap-base);
+    margin-top: clamp(2.5rem, -0.202rem + 9.398vw, 5.625rem); /** 992-90 460-40*/
+  }
+
+  /** НАЧАЛО СТИЛИ которые касаються AboutCard*/
+  .card {
+    min-width: 285px;
+    max-width: 353px;
+    padding: 1rem;
+    background-color: var(--bg-opacity1);
+  }
+
+  .card-img {
+    width: clamp(4rem, 3.135rem + 3.008vw, 5rem);
+    height: auto;
+  }
+
+  .card-title {
+    color: var(--text-gray-200);
+    margin-top: 4px;
+    margin-bottom: 24px;
+    font-size: clamp(1.25rem, 1.716rem + -0.752vw, 1.5rem);
+  }
+
+  .card-content {
+  }
+
+  .card-content__text {
+    font-size: var(--font-size-16-14);
+    color: var(--text-gray-300);
+    line-height: var(--line-height-lg);
+  }
+
+  @media (max-width: 767px) {
+    .card-text {
+      line-height: var(--line-height-l);
+    }
+  }
+
+  /** КОНЕЦ СТИЛИ которые касаються AboutCard*/
+
+  @media (max-width: 992px) {
+    .cards {
+      grid-template-columns: repeat(2, minmax(auto, 353px));
+      justify-content: space-evenly;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .cards {
+      grid-template-columns: minmax(auto, 353px);
+      justify-content: center;
+    }
+  }
+</style>

@@ -40,7 +40,11 @@
     
     /*background*/
     --bg-primary: #252237; /* rgba(37, 34, 55, 1);*/
+    --bg-secondary: #eef2fb; /* rgba(238, 242, 251, 1);*/
 
+    --bg-shape1: #2c2b3d; /* rgba(44, 43, 61, 1)*/
+    --bg-shape2: #766CF5;
+    
     --bg-opacity1: #d1ceff0d; /* rgba(209, 206, 255, 0.05)*/
 
     /* text color*/

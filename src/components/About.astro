@@ -113,6 +113,15 @@ import img_3_Src from "../assets/images/about/img3.webp";
     </main>
   </div>
 </section>
+<section class="separator">
+  <div class="triangle-bottom"></div>
+  <div class="triangle-top"></div>
+  
+  <div class="parallelogram1"></div>
+  <div class="parallelogram2"></div>
+  <div class="parallelogram3 parallelogram3--left"></div>
+  <div class="parallelogram3 parallelogram3--right"></div>
+</section>
 
 <style>
   .about {
@@ -126,6 +135,73 @@ import img_3_Src from "../assets/images/about/img3.webp";
     justify-content: space-between;
     gap: var(--gap-base);
     margin-top: clamp(2.5rem, -0.202rem + 9.398vw, 5.625rem); /** 992-90 460-40*/
+  }
+
+  /** separator*/
+  .separator {
+    position: relative;
+    width: 100%;
+    height: clamp(3.438rem, 0.24rem + 11.122vw, 10.25rem);/** 1440-164 460-55*/
+  }
+
+  .triangle-top {
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: inherit;
+    height: inherit;
+    background-color: var(--bg-primary);
+    clip-path: polygon(0 0, 100% 0%, 100% 5%, 0% 100%);
+  }
+
+  .triangle-bottom {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: inherit;
+    height: inherit;
+    background-color: var(--bg-secondary);
+    clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+  }
+
+  .parallelogram1 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: inherit;
+    height: inherit;
+    background-color: var(--bg-shape1);
+    clip-path: polygon(100% 0, 100% 50%, 0 100%, 0 50%);
+  }
+
+  .parallelogram2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 44%;
+    height: inherit;
+    background: linear-gradient(231.49deg, rgba(116, 108, 245, 0.4),rgba(116, 108, 245, 0) 100%);
+    clip-path: polygon(0% 26%, 100% 0%, 98.2% 50%, 0% 76%);
+  }
+
+  .parallelogram3 {
+    position: absolute;
+    height: inherit;
+    background-color: var(--bg-shape2);
+    clip-path: polygon(0% 4%, 100% 0%, 87.2% 50%, 0% 54%);
+  }
+
+  .parallelogram3--left {
+    top: 18%;
+    left: 0;
+    width: 6%;
+  }
+
+  .parallelogram3--right {
+    top: -24%;
+    right: 0;
+    width: 7.4%;
+    transform: rotate(180deg);
   }
 
   /** НАЧАЛО СТИЛИ которые касаються AboutCard*/

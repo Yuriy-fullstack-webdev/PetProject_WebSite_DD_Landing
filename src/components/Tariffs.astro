@@ -1,8 +1,31 @@
 ---
+import HeaderBlock from "./blocks/HeaderBlock.astro";
 
+const HeaderData = [
+  {
+    supertitle: "Наші ціни",
+    title: "Комплексні Тарифні Плани",
+    subtitle:
+      "Комплексні тарифні плани забезпечують зручність та економію, об'єднуючи в одному пакеті різні послуги, такі як дизайн, верстка, SEO-оптимізація.",
+    color: "white", // Необязательный, с дефолтом "white" | "black";
+    position: "center", // Необязательный, с дефолтом "left" | "center";
+  },
+];
 ---
-<h1>Тарифи</h1>
-
-<style>
-
-</style>
+<section id="tariffs" class="tariffs">
+    <div class="container">
+      <HeaderBlock data={HeaderData}/>
+      <main>
+              
+      </main>
+    </div>
+    </section>
+  
+  
+    <style>
+      .tariffs {
+          padding-top: 60px;
+          padding-bottom: 94px;
+          background-color: var(--bg-primary);
+      }
+  </style>

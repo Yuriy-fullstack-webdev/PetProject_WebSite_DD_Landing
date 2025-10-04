@@ -1,6 +1,10 @@
 ---
 import Footer from "../components/Footer.astro";
+import Request from "../components/Request.astro";
+import FAQ from "../components/FAQ.astro";
+import Reviews from "../components/Reviews.astro";
 import Tools from "../components/Tools.astro";
+import Order from "../components/Order.astro";
 import Creation from "../components/Creation.astro";
 import Price from "../components/Price.astro";
 import Tariffs from "../components/Tariffs.astro";
@@ -25,7 +29,11 @@ import Layout from "../layouts/Layout.astro";
   <Portfolio />
   <Tariffs />
   <Price />
-  <Creation />
-  <Tools />
+  <Order /><!--Потрібен інструмен для залучення клієнтів? --> 
+  <Creation /> <!--Створення сайту --> 
+  <Tools />  <!--Сучасні Технології для Досягнення Результату --> 
+  <Reviews/> <!--Відгуки про нашу роботу --> 
+  <FAQ/> <!--FAQ -->
+  <Request/> <!--Залишайте запит -->
   <Footer />
 </Layout>

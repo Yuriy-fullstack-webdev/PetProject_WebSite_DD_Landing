@@ -1,8 +1,80 @@
 ---
 
 ---
-<h1>Переваги</h1>
+
+<section id="advantages" class="advantages">
+  <div class="container">
+    <header class="header-block header-block--center" data-color="black">
+      <p class="header-supertitle">Наші переваги</p>
+      <h2 class="header-title title-h2">
+        Креатив<span class="dot">.&ensp;</span>Результат<span class="dot">.&ensp;</span>Інновації<span class="dot"
+          >.&ensp;</span
+        >
+      </h2>
+      <p class="header-subtitle">
+        Ми завжди маємо для вас свіжі ідеї та сучасний погляд на дизайн. Наші пріоритети - це гнучкі ціни та
+        індивідуальний підхід до кожного клієнта. Ми використовуємо новітні технології для максимальної ефективності та
+        орієнтуємось на результат. Працюючи, ми повністю віддаємось вашому проекту.
+      </p>
+    </header>
+    <main></main>
+  </div>
+</section>
 
 <style>
+  .advantages {
+    padding-top: 120px;
+    padding-bottom: 60px;
+    background-color: var(--bg-secondary);
+  }
 
+  .header-block {
+    letter-spacing: var(--spacing-s);
+  }
+
+  .header-block--left :is(p, h2) {
+    text-align: left;
+  }
+
+  .header-block--center :is(p, h2) {
+    text-align: center;
+  }
+
+  .header-supertitle {
+    font-weight: 500;
+    font-size: var(--font-size-20-16);
+  }
+
+  .header-title {
+    margin-top: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .header-subtitle {
+    font-weight: 400;
+    font-size: var(--font-size-18-16);
+  }
+
+  [data-color="black"] .header-supertitle {
+    color: var(--text-accent5);
+  }
+
+  [data-color="black"] .header-title {
+    color: var(--text-primary);
+  }
+
+  [data-color="black"] .header-subtitle {
+    color: var(--text-dark-3);
+  }
+
+  .dot {
+    color: var(--text-accent2);
+  }
+
+  @media (max-width: 767px) {
+    .header-supertitle,
+    .header-subtitle {
+      line-height: var(--line-height-s);
+    }
+  }
 </style>

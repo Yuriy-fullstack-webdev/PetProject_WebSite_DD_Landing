@@ -1,12 +1,32 @@
 ---
+import HeaderBlock from "./blocks/HeaderBlock.astro";
 
+const HeaderData = [
+  {
+    supertitle: "Наші проєкти",
+    title: "Деякі з Наших Кейсів",
+    subtitle:
+      "Ми віримо, що кожен сайт – це унікальна можливість створити щось особливе, щось, що залишить слід у цифровому світі. І ми вкладаємо всю свою пристрасть, знання та досвід, щоб зробити цю можливість реальністю.",
+    color: "black", // Необязательный, с дефолтом "white" | "black";
+    position: "left", // Необязательный, с дефолтом "left" | "center";
+  },
+];
 ---
 
-<section id="portfolio">
-<h1>Наші проєкти</h1>    
+<section id="portfolio" class="portfolio">
+  <div class="container">
+    <HeaderBlock data={HeaderData}/>
+    <main>
+            
+    </main>
+  </div>
   </section>
 
 
-<style>
-
+  <style>
+    .portfolio {
+        padding-top: 60px;
+        padding-bottom: 94px;
+        background-color: var(--bg-white);
+    }
 </style>

@@ -1,11 +1,30 @@
 ---
+import HeaderBlock from "./blocks/HeaderBlock.astro";
 
+const HeaderData = [
+  {
+    title: "Ціни на Дизайн/Розробку",
+    subtitle:
+      "Наші ціни на дизайн і розробку сайтів вигідні кожному з вас завдяки оптимальному поєднанню високої якості, індивідуального підходу та ефективних робочих процесів, що дозволяє нам пропонувати конкурентоспроможні розцінки.",
+    color: "white", // Необязательный, с дефолтом "white" | "black";
+    position: "center", // Необязательный, с дефолтом "left" | "center";
+  },
+];
 ---
-<section id="price">
-<h1>Ціна</h1>
-</section>
-
-
-<style>
-
-</style>
+<section id="price" class="price">
+    <div class="container">
+      <HeaderBlock data={HeaderData}/>
+      <main>
+              
+      </main>
+    </div>
+    </section>
+  
+  
+    <style>
+      .price {
+          padding-top: 150px;
+          padding-bottom: 120px;
+          background-color: var(--bg-primary);
+      }
+  </style>

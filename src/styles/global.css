@@ -41,11 +41,15 @@
     /*background*/
     --bg-primary: #252237; /* rgba(37, 34, 55, 1);*/
     --bg-secondary: #eef2fb; /* rgba(238, 242, 251, 1);*/
+    --bg-tertiary: #ebeffa; /*rgba(235, 239, 250, 1);*/
+
+    --bg-white: #ffffff;
 
     --bg-shape1: #2c2b3d; /* rgba(44, 43, 61, 1)*/
     --bg-shape2: #766CF5;
-    
+
     --bg-opacity1: #d1ceff0d; /* rgba(209, 206, 255, 0.05)*/
+    
 
     /* text color*/
     --text-primary: #252237;
@@ -53,6 +57,7 @@
     --text-gray-200: #efefef; /* rgba(239, 239, 239, 1)*/
     --text-gray-300: #d1ceff; /* rgba(209, 206, 255, 1);*/
 
+    --text-accent2: #ff9f1c;
     --text-accent3: #239ee8; /* rgba(35, 158, 232, 1);*/
     --text-accent5: #766CF5; /* rgba(118, 108, 245, 1)*/
 

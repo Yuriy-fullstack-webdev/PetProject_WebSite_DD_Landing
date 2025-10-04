@@ -50,14 +50,14 @@ import img_3_Src from "../assets/images/about/img3.webp";
         />
         <h2 class="card-title title-h2">Розширення охоплення аудиторії та географії продажів</h2>
         <article class="card-content">
-          <p class="card-content__text">
+          <p>
             3% споживачів починають пошук товарів чи послуг онлайн, незалежно від того, де вони планують здійснити
             покупку
           </p>
-          <p class="card-content__text">
+          <p>
             Бізнеси з веб-сайтами залучають в середньому на 70% більше клієнтів, ніж без онлайн-присутності
           </p>
-          <p class="card-content__text">
+          <p>
             81% споживачів досліджують товар/послугу в інтернеті перед покупкою, що робить сайт важливим каналом
             інформування
           </p>
@@ -74,14 +74,14 @@ import img_3_Src from "../assets/images/about/img3.webp";
         />
         <h2 class="card-title title-h2">Зниження операційних витрат та автоматизація процесів</h2>
         <article class="card-content">
-          <p class="card-content__text">
+          <p>
             Автоматизація процесу обробки замовлень через сайт знижує витрати на персонал до 30%
           </p>
-          <p class="card-content__text">
+          <p>
             Самообслуговування клієнтів через сайт (FAQ, онлайн-підтримка) зменшує кількість звернень до служби
             підтримки на 40-60%
           </p>
-          <p class="card-content__text">
+          <p>
             Інтеграція CRM з сайтом підвищує ефективність продажів на 29% та скорочує цикл продажів на 8-14%
           </p>
         </article>
@@ -97,14 +97,14 @@ import img_3_Src from "../assets/images/about/img3.webp";
         />
         <h2 class="card-title title-h2">Розширення охоплення аудиторії та географії продажів</h2>
         <article class="card-content">
-          <p class="card-content__text">
+          <p>
             3% споживачів починають пошук товарів чи послуг онлайн, незалежно від того, де вони планують здійснити
             покупку
           </p>
-          <p class="card-content__text">
+          <p>
             Бізнеси з веб-сайтами залучають в середньому на 70% більше клієнтів, ніж без онлайн-присутності
           </p>
-          <p class="card-content__text">
+          <p>
             81% споживачів досліджують товар/послугу в інтернеті перед покупкою, що робить сайт важливим каналом
             інформування
           </p>
@@ -142,6 +142,7 @@ import img_3_Src from "../assets/images/about/img3.webp";
     position: relative;
     width: 100%;
     height: clamp(3.438rem, 0.24rem + 11.122vw, 10.25rem);/** 1440-164 460-55*/
+    overflow: hidden;
   }
 
   .triangle-top {
@@ -157,7 +158,7 @@ import img_3_Src from "../assets/images/about/img3.webp";
   .triangle-bottom {
     position: absolute;
     top: 0;
-    right: 0;
+    right: -1px;
     width: inherit;
     height: inherit;
     background-color: var(--bg-secondary);
@@ -225,9 +226,15 @@ import img_3_Src from "../assets/images/about/img3.webp";
   }
 
   .card-content {
+    display: flex;
+    flex-direction: column;
+    row-gap: calc(var(--font-size-16-14) * var(--line-height-lg));
+    font-size: var(--font-size-16-14);
+    color: var(--text-gray-300);
+    line-height: var(--line-height-lg);
   }
 
-  .card-content__text {
+  .card-content1 {
     font-size: var(--font-size-16-14);
     color: var(--text-gray-300);
     line-height: var(--line-height-lg);

@@ -30,9 +30,7 @@ import sound from "../assets/sound/nav-sound.mp3";
           <li class="nav-item"><button class="nav-item__button">SEO-оптимізація</button></li>
           <li class="nav-item"><button class="nav-item__button">Підтримка</button></li>
         </ul>
-        <audio class="nav-sound--hover" src={sound} preload="auto">
-          Ваш браузер не поддерживает audio на HTML5.
-      </audio>
+        <audio class="nav-sound--hover" src={sound} preload="auto"> Ваш браузер не поддерживает audio на HTML5. </audio>
       </nav>
       <section class="cards">
         <div class="card">
@@ -71,27 +69,30 @@ import sound from "../assets/sound/nav-sound.mp3";
     </div>
   </section>
 </section>
+
 <script>
+  const audio: HTMLAudioElement | null = document.querySelector(".nav-sound--hover");
+  const buttons: NodeListOf<HTMLButtonElement> = document.querySelectorAll(".nav-item__button");
 
-const audio = document.querySelector(".nav-sound--hover") as HTMLAudioElement;
-const buttons: NodeListOf<HTMLButtonElement> = document.querySelectorAll(".nav-item__button");
-
-buttons.forEach((button: HTMLButtonElement) => {
-    
-    button.addEventListener('mouseenter', (): void => {
+  //Проверяем, существует ли аудиоэлемент
+  if (!audio) {
+    console.error("Audio element with class '.nav-sound--hover' not found. Sound feature disabled.");
+  } else {
+    buttons.forEach((button: HTMLButtonElement) => {
+      button.addEventListener("mouseenter", (): void => {
         audio.currentTime = 0;
-        audio.play().catch(error => {
-            console.warn("Audio playback initiated by mouseenter failed:", error);
+        audio.play().catch((error) => {
+          console.warn("Audio playback initiated by mouseenter failed:", error);
         });
-    });
+      });
 
-    button.addEventListener('mouseleave', (): void => {
+      button.addEventListener("mouseleave", (): void => {
         audio.pause();
         audio.currentTime = 0;
+      });
     });
-});
+  }
 </script>
-
 
 <style>
   .advantages {
@@ -148,7 +149,6 @@ buttons.forEach((button: HTMLButtonElement) => {
   .nav {
     margin: 64px 0;
     border-bottom: 1px dashed rgba(37, 34, 55, 0.2);
-     
   }
 
   .nav-list {
@@ -173,7 +173,7 @@ buttons.forEach((button: HTMLButtonElement) => {
     position: absolute;
     bottom: calc((var(--margin-bottom) + var(--padding-button-line)) * (-1));
     left: 50%;
-    transform: translateX(-50%);  
+    transform: translateX(-50%);
     width: calc(100% + 2 * var(--margin-line));
     height: 2px;
     transition: width 0.5s;
@@ -203,9 +203,9 @@ buttons.forEach((button: HTMLButtonElement) => {
     position: absolute;
     bottom: calc((var(--margin-bottom) + var(--padding-button-line)) * (-1));
     left: 50%;
-    transform: translateX(-50%);  
+    transform: translateX(-50%);
     /* bottom: var(--margin-bottom); */
-    
+
     width: 0;
     height: 2px;
     transition: width 0.5s;
@@ -217,9 +217,9 @@ buttons.forEach((button: HTMLButtonElement) => {
     position: absolute;
     bottom: calc((var(--margin-bottom) + var(--padding-button-line)) * (-1));
     left: 50%;
-    transform: translateX(-50%);  
+    transform: translateX(-50%);
     width: calc(100% + 2 * var(--margin-line));
-    height: 2px;    
+    height: 2px;
     /* bottom: var(--margin-bottom); */
     transition: width 0.5s;
     background-color: red;

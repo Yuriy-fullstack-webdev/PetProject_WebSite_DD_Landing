@@ -7,6 +7,8 @@
 /* h2,h3,h4,h5,h6,dl*/
 
 h1,
+h2,
+h3,
 p{
   margin-block: 0;
 }

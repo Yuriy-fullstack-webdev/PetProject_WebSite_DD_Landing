@@ -1,5 +1,5 @@
 ---
-
+import sound from "../assets/sound/nav-sound.mp3";
 ---
 
 <section id="advantages" class="advantages">
@@ -17,12 +17,85 @@
         орієнтуємось на результат. Працюючи, ми повністю віддаємось вашому проекту.
       </p>
     </header>
-    <main></main>
+    <main>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li class="nav-item nav-item--activ">
+            <button class="nav-item__button">Дизайн</button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-item__button">Розробка</button>
+          </li>
+          <li class="nav-item"><button class="nav-item__button">Контент-стратегія</button></li>
+          <li class="nav-item"><button class="nav-item__button">SEO-оптимізація</button></li>
+          <li class="nav-item"><button class="nav-item__button">Підтримка</button></li>
+        </ul>
+        <audio class="nav-sound--hover" src={sound} preload="auto">
+          Ваш браузер не поддерживает audio на HTML5.
+      </audio>
+      </nav>
+      <section class="cards">
+        <div class="card">
+          <div class="card-img">
+            <div class="card-img__img"></div>
+          </div>
+          <div class="card-content">
+            <h3 class="card-content__title title-h3">Дизайн</h3>
+            <p class="card-content__tagline">
+              Ми використовуємо дизайн як потужний інструмент для створення зручних, естетичних та функціональних
+              сайтів, які вирішують проблеми користувачів, покращують взаємодію з брендом і забезпечують високу
+              конверсію.
+            </p>
+            <div class="card-desc">
+              <p class="card-desc__headline">Які проблеми ми вирішуємо за допомогою дизайнерських рішень:</p>
+              <ul class="desc-list">
+                <li class="desc-item">Неадаптивність сайту</li>
+                <li class="desc-item">Складність у навігації</li>
+                <li class="desc-item">Відсутність унікальності</li>
+                <li class="desc-item">Низька залученість</li>
+                <li class="desc-item">Низька швидкість завантаження</li>
+                <li class="desc-item">Складність у передачі ключових повідомлень</li>
+                <li class="desc-item">Відсутність довіри до бренду</li>
+                <li class="desc-item">Погані показники конверсії</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
   </div>
+  <section class="advantages-pattern">
+    <div class="advantages-pattern__wrap">
+      <div class="advantages-pattern__parallelogram"></div>
+      <div class="advantages-pattern__parallelogram2 figure637-119"></div>
+    </div>
+  </section>
 </section>
+<script>
+
+const audio = document.querySelector(".nav-sound--hover") as HTMLAudioElement;
+const buttons: NodeListOf<HTMLButtonElement> = document.querySelectorAll(".nav-item__button");
+
+buttons.forEach((button: HTMLButtonElement) => {
+    
+    button.addEventListener('mouseenter', (): void => {
+        audio.currentTime = 0;
+        audio.play().catch(error => {
+            console.warn("Audio playback initiated by mouseenter failed:", error);
+        });
+    });
+
+    button.addEventListener('mouseleave', (): void => {
+        audio.pause();
+        audio.currentTime = 0;
+    });
+});
+</script>
+
 
 <style>
   .advantages {
+    position: relative;
     padding-top: 120px;
     padding-bottom: 60px;
     background-color: var(--bg-secondary);
@@ -69,6 +142,221 @@
 
   .dot {
     color: var(--text-accent2);
+  }
+
+  /** main */
+  .nav {
+    margin: 64px 0;
+    border-bottom: 1px dashed rgba(37, 34, 55, 0.2);
+     
+  }
+
+  .nav-list {
+    --padding-button-block: 6px;
+    --padding-button-line: 1px;
+    --margin-bottom: 15px;
+    --margin-line: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 var(--margin-line) var(--margin-bottom);
+  }
+
+  .nav-item {
+    position: relative;
+    max-width: max-content;
+  }
+
+  .nav-item--activ:after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: calc((var(--margin-bottom) + var(--padding-button-line)) * (-1));
+    left: 50%;
+    transform: translateX(-50%);  
+    width: calc(100% + 2 * var(--margin-line));
+    height: 2px;
+    transition: width 0.5s;
+    background-color: var(--hover--accent5);
+  }
+
+  .nav-item__button {
+    position: relative;
+    color: rgba(37, 34, 55, 0.5);
+
+    font-family: Lato;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0px;
+    text-align: center;
+
+    padding: var(--padding-button-line) var(--padding-button-block);
+    cursor: pointer;
+    background-color: transparent;
+    border: transparent;
+  }
+
+  .nav-item__button:after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: calc((var(--margin-bottom) + var(--padding-button-line)) * (-1));
+    left: 50%;
+    transform: translateX(-50%);  
+    /* bottom: var(--margin-bottom); */
+    
+    width: 0;
+    height: 2px;
+    transition: width 0.5s;
+    background-color: var(--hover--accent5);
+  }
+  .nav-item__button:hover:after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: calc((var(--margin-bottom) + var(--padding-button-line)) * (-1));
+    left: 50%;
+    transform: translateX(-50%);  
+    width: calc(100% + 2 * var(--margin-line));
+    height: 2px;    
+    /* bottom: var(--margin-bottom); */
+    transition: width 0.5s;
+    background-color: red;
+  }
+
+  .cards {
+    position: relative;
+    z-index: 1;
+  }
+  .card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: var(--gap-base);
+    /* width: 1150px; */
+    height: 505px;
+
+    padding: 24px 16px 24px 16px;
+
+    box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.25);
+    background: rgba(255, 255, 255, 1);
+  }
+  .card-img {
+    position: relative;
+
+    max-width: 435px;
+    width: 100%;
+    aspect-ratio: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-sizing: border-box;
+    border: 1px dashed rgba(37, 34, 55, 0.7);
+    border-radius: 50%;
+  }
+
+  .card-img__img {
+    width: 88%;
+    height: 88%;
+    border-radius: 50%;
+    background-color: red;
+  }
+  .card-content {
+    max-width: 547px;
+  }
+  .card-content__title {
+    color: var(--text-accent5);
+  }
+  .card-content__tagline {
+    color: var(--text-dark-3);
+
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 22px;
+    letter-spacing: 0px;
+    text-align: left;
+
+    margin: 24px 0;
+  }
+  .card-desc {
+    letter-spacing: 0px;
+    text-align: left;
+  }
+  .card-desc__headline {
+    color: var(--text-dark-3);
+
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22px;
+    margin-bottom: 16px;
+  }
+  .desc-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    row-gap: 24px;
+    column-gap: 50px;
+    align-items: center;
+  }
+  .desc-item {
+    position: relative;
+    color: var(--text-dark-3);
+
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 19px;
+    font-style: italic;
+
+    padding-left: 38px;
+  }
+
+  .desc-item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%; /* Центрируем по вертикали */
+    transform: translateY(-50%);
+
+    width: 22px;
+    height: 22px;
+
+    background-image: url("../assets/images/ball.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  /**advantages-pattern */
+  .advantages-pattern {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 35.5%;
+    background-color: var(--bg-white);
+  }
+  .advantages-pattern__wrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  .advantages-pattern__parallelogram {
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(0 7%, 100% 0, 100% 49%, 0 76%);
+    background-color: var(--bg-shape3);
+    margin-top: -2.28%;
+  }
+
+  .advantages-pattern__parallelogram2 {
+    position: absolute;
+    top: -32px; /** 3 */
+    right: 2%;
+    background: linear-gradient(231.49deg, rgba(116, 108, 245, 0.19), rgba(116, 108, 245, 0) 100%);
+    clip-path: polygon(0 38%, 100% 0, 97% 65%, 0 100%);
   }
 
   @media (max-width: 767px) {

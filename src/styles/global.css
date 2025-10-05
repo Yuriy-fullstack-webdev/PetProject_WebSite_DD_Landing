@@ -47,6 +47,7 @@
 
     --bg-shape1: #2c2b3d; /* rgba(44, 43, 61, 1)*/
     --bg-shape2: #766CF5;
+    --bg-shape3:  #f7f9ff; /*rgba(247, 249, 255, 1);*/
 
     --bg-opacity1: #d1ceff0d; /* rgba(209, 206, 255, 0.05)*/
     
@@ -57,9 +58,14 @@
     --text-gray-200: #efefef; /* rgba(239, 239, 239, 1)*/
     --text-gray-300: #d1ceff; /* rgba(209, 206, 255, 1);*/
 
+    --text-dark-3: #4c495e; /* rgba(76, 73, 94, 1);*/
+
     --text-accent2: #ff9f1c;
     --text-accent3: #239ee8; /* rgba(35, 158, 232, 1);*/
     --text-accent5: #766CF5; /* rgba(118, 108, 245, 1)*/
+
+    /**hover*/
+    --hover--accent5: #766CF5; /* rgba(118, 108, 245, 1)*/
 
     /*Font*/
     --font-family-primary: "Lato", "Poppins", "Roboto", "Open Sans", sans-serif;
@@ -123,6 +129,22 @@
 .title-h2 {
     font-weight: 700;
     font-size: var(--font-size-36-24);
+}
+
+/** figure*/
+.figure637-119 {
+    width: 44.8%;
+    max-height: 119px;
+    height: 100%;
+    aspect-ratio: 1;
+}
+
+.title-h3 {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 48px;
+    letter-spacing: 0px;
+    text-align: left;
 }
 
 

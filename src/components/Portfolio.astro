@@ -1,6 +1,9 @@
 ---
+import { Image } from "astro:assets";
 import HeaderBlock from "./blocks/HeaderBlock.astro";
 
+//изображения слайды
+import imgSlide from "../assets/images/slide/slide.jpeg";
 const HeaderData = [
   {
     supertitle: "Наші проєкти",
@@ -15,18 +18,203 @@ const HeaderData = [
 
 <section id="portfolio" class="portfolio">
   <div class="container">
-    <HeaderBlock data={HeaderData}/>
+    <HeaderBlock data={HeaderData} />
     <main>
-            
+      <!--Каруселі -->
+      <div class="embla">
+        <div class="embla__viewport">
+          <div class="embla__container">
+            <section class="embla__slide">
+              <div class="embla__slide-slide">
+                <div class="embla__slide-img">
+                  <Image class="embla__slide-img__img" src={imgSlide} width={350} height={500} alt="изображени" />
+                </div>
+                <div class="embla__slide-content">
+                  <p class="embla__slide-title">Georgia</p>
+                  <p class="embla__slide-text">
+                    Сайт, створений за допомогою сучасних веб-технологій має на меті познайомити відвідувачів з
+                    багатогранною Грузією, демонструючи її багаті традиції, неповторну кухню та мальовничу природу, щоб
+                    заохотити до її відвідування та поглибити культурне розуміння.
+                  </p>
+                </div>
+              </div>
+            </section>
+            <section class="embla__slide">
+              <div class="embla__slide-slide">
+                <div class="embla__slide-img">
+                  <Image class="embla__slide-img__img" src={imgSlide} width={350} height={500} alt="изображени" />
+                </div>
+                <div class="embla__slide-content">
+                  <p class="embla__slide-title">Слайд 2</p>
+                  <p class="embla__slide-text">
+                    Сайт, створений за допомогою сучасних веб-технологій має на меті познайомити відвідувачів з
+                    багатогранною Грузією, демонструючи її багаті традиції, неповторну кухню та мальовничу природу, щоб
+                    заохотити до її відвідування та поглибити культурне розуміння.
+                  </p>
+                </div>
+              </div>
+            </section>
+            <section class="embla__slide">
+              <div class="embla__slide-slide">
+                <div class="embla__slide-img">
+                  <Image class="embla__slide-img__img" src={imgSlide} width={350} height={500} alt="изображени" />
+                </div>
+                <div class="embla__slide-content">
+                  <p class="embla__slide-title">Слайд 3</p>
+                  <p class="embla__slide-text">
+                    Сайт, створений за допомогою сучасних веб-технологій має на меті познайомити відвідувачів з
+                    багатогранною Грузією, демонструючи її багаті традиції, неповторну кухню та мальовничу природу, щоб
+                    заохотити до її відвідування та поглибити культурне розуміння.
+                  </p>
+                </div>
+              </div>
+            </section>
+            <section class="embla__slide">
+              <div class="embla__slide-slide">
+                <div class="embla__slide-img">
+                  <Image class="embla__slide-img__img" src={imgSlide} width={350} height={500} alt="изображени" />
+                </div>
+                <div class="embla__slide-content">
+                  <p class="embla__slide-title">Слайд 4</p>
+                  <p class="embla__slide-text">
+                    Сайт, створений за допомогою сучасних веб-технологій має на меті познайомити відвідувачів з
+                    багатогранною Грузією, демонструючи її багаті традиції, неповторну кухню та мальовничу природу, щоб
+                    заохотити до її відвідування та поглибити культурне розуміння.
+                  </p>
+                </div>
+              </div>
+            </section>
+            <section class="embla__slide">
+              <div class="embla__slide-slide">
+                <div class="embla__slide-img">
+                  <Image class="embla__slide-img__img" src={imgSlide} width={350} height={500} alt="изображени" />
+                </div>
+                <div class="embla__slide-content">
+                  <p class="embla__slide-title">Слайд 5</p>
+                  <p class="embla__slide-text">
+                    Сайт, створений за допомогою сучасних веб-технологій має на меті познайомити відвідувачів з
+                    багатогранною Грузією, демонструючи її багаті традиції, неповторну кухню та мальовничу природу, щоб
+                    заохотити до її відвідування та поглибити культурне розуміння.
+                  </p>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+        <button class="embla__prev">Prev</button>
+        <button class="embla__next">Next</button>
+      </div>
     </main>
   </div>
-  </section>
+</section>
+<!-- Скрипт Каруселі -->
+<script>
+  // Імпортуємо EmblaCarousel безпосередньо в скрипт
+  import EmblaCarousel from "embla-carousel";
 
+  const rootNode = document.querySelector(".embla") as HTMLDivElement;
+  const viewportNode = rootNode.querySelector(".embla__viewport") as HTMLDivElement;
+  const prevButtonNode = rootNode.querySelector(".embla__prev") as HTMLButtonElement;
+  const nextButtonNode = rootNode.querySelector(".embla__next") as HTMLButtonElement;
 
-  <style>
-    .portfolio {
-        padding-top: 60px;
-        padding-bottom: 94px;
-        background-color: var(--bg-white);
-    }
+  // Ініціалізуємо карусель
+  const embla = EmblaCarousel(viewportNode);
+
+  // Додаємо обробники подій
+  // prevButtonNode.addEventListener('click', embla.scrollPrev, false);
+  // nextButtonNode.addEventListener('click', embla.scrollNext, false);
+  prevButtonNode.addEventListener("click", () => embla.scrollPrev(), false);
+  nextButtonNode.addEventListener("click", () => embla.scrollNext(), false);
+</script>
+
+<style>
+  .portfolio {
+    padding-top: 60px;
+    padding-bottom: 94px;
+    background-color: var(--bg-white);
+  }
+  /** Стилізація каруселі */
+  .embla {
+    margin-top: 44px;
+    position: relative;
+    left: 0;
+  }
+
+  .embla__viewport {
+    width: 100%;
+    padding-right: 10px;
+    overflow: hidden; 
+  }
+
+  .embla__container {
+    display: flex;
+    gap: 5%;
+    justify-content: space-between;
+  }
+  .embla__slide {
+    flex: 0 0 30%;
+  }
+
+  .embla__slide-slide {
+    width: 100%;
+  }
+
+  .embla__slide-img {
+    width: 100%;
+    height: 500px;
+  }
+
+  .embla__slide-img__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: 8px 8px 8px 0px rgba(21, 19, 32, 0.1);
+  }
+
+  .embla__slide-content {
+    margin-top: 40px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .embla__slide-title {
+    color: rgba(37, 34, 55, 1);
+
+    font-family: Lato;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 29px;
+    letter-spacing: 0px;
+    text-align: left;
+  }
+
+  .embla__slide-text {
+    color: rgba(76, 73, 94, 0.7);
+
+    font-family: Lato;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0px;
+    text-align: left;
+  }
+
+  .embla__prev,
+  .embla__next {
+    --button-padding: -85px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .embla__prev {
+    left: var(--button-padding);
+  }
+
+  .embla__next {
+    right: var(--button-padding);
+  }
 </style>

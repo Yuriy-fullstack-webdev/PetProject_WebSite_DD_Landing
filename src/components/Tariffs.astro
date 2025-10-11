@@ -1,4 +1,5 @@
 ---
+import { map } from "astro:schema";
 import HeaderBlock from "./blocks/HeaderBlock.astro";
 
 const HeaderData = [
@@ -11,21 +12,197 @@ const HeaderData = [
     position: "center", // Необязательный, с дефолтом "left" | "center";
   },
 ];
+
+const plans = [
+  {
+    title: "Сайт-Візитівка",
+    price: "35 000",
+    desc: "Ідеально підходить для компаній, що прагнуть створити професійний онлайн-імідж та надати повну інформацію про себе.",
+    desclist: [
+      "Дизайн головної та внутрішніх сторінок",
+      "Розробка та інтеграція контенту",
+      "Створення контактної форми",
+      "Базова SEO-оптимізація",
+      "Інтеграція з соціальними мережами",
+    ],
+  },
+  {
+    title: "Landing Page",
+    price: "20 000",
+    desc: "Оптимально для невеликих компаній та індивідуальних підприємців, яким треба просувати свої послуги.",
+    desclist: [
+      "Дизайн та затвердження макету",
+      "Верстка та програмування",
+      "Контент-стратегія під запит",
+      "Тестування та оптимізація",
+      "Запуск та аналітика",
+    ],
+  },
+  {
+    title: "Сайт-Портфоліо",
+    price: "40 000",
+    desc: "Призначено для творчих фахівців та компаній, яким необхідно презентувати свої роботи, ідеї та кейси.",
+    desclist: [
+      "Створення індивідуального дизайну",
+      "Розробка структури для кейсів",
+      "Система управління контентом (CMS)",
+      "Підключення форми зворотного зв'язку",
+      "Адаптивна верстка",
+    ],
+  },
+];
 ---
+
 <section id="tariffs" class="tariffs">
-    <div class="container">
-      <HeaderBlock data={HeaderData}/>
-      <main>
+  <div class="container">
+    <HeaderBlock data={HeaderData} />
+    <main class="plans-list">
+      {
+        plans.map((plan) => (
+          <section class="plan-item">
+            <div>
+              <h3 class="plan-item__title">{plan.title}</h3>
+              <p class="plan-item__price">від {plan.price} грн</p>
+              <p class="plan-item__desc">{plan.desc}</p>
+            </div>
+            <div class="plan-desc">
+              <ul class="desc-list">
+                {plan.desclist.map((item) => (
+                  <li class="desc-item">{item}</li>
+                ))}
+              </ul>
+              <div>
+              <button class="plan-item__button">Замовити</button>
+              <p class="plan-item__footnote">*Пропозиція діє лише при замовленні комплексної послуги Дизайн+Розробка</p>  
+              </div>
               
-      </main>
-    </div>
-    </section>
-  
-  
-    <style>
-      .tariffs {
-          padding-top: 60px;
-          padding-bottom: 94px;
-          background-color: var(--bg-primary);
+            </div>
+          </section>
+        ))
       }
-  </style>
+    </main>
+  </div>
+</section>
+<style>
+  .tariffs {
+    padding-top: 108px;
+    background-color: var(--bg-primary);
+  }
+  .plans-list {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--gap-base);
+    /* height: max-content; */
+    margin-top: 90px;
+  }
+  .plan-item {
+    flex: 0 0 350px;
+    display: flex;
+    flex-direction: column;
+    padding: 36px 38px 36px 38px;
+  }
+  .plan-item:nth-child(1) {
+    background: linear-gradient(225deg, rgba(41, 40, 57, 1), rgba(62, 60, 84, 1) 100%);
+  }
+  .plan-item:nth-child(2) {
+    background: linear-gradient(225deg, rgba(38, 86, 189, 1), rgba(34, 153, 228, 1) 100%);
+  }
+  .plan-item:nth-child(3) {
+    background: linear-gradient(225deg, rgba(164, 54, 164, 1), rgba(247, 126, 92, 1) 100%);
+  }
+  .plan-item__title {
+    color: rgba(254, 254, 254, 1);
+
+    font-family: Lato;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 29px;
+    letter-spacing: 0px;
+    text-align: left;
+  }
+  .plan-item__price {
+    color: rgba(230, 168, 35, 1);
+
+    font-family: Lato;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 43px;
+    letter-spacing: 0px;
+    text-align: left;
+
+    margin-top: 10px;
+  }
+  .plan-item__desc {
+    color: rgba(209, 206, 255, 1);
+
+    font-family: Lato;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0px;
+    text-align: left;
+    margin-top: 24px;
+  }
+  .plan-desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+  }
+  .desc-list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 26px;
+    margin-top: 30px;
+    margin-bottom: 38px;
+  }
+  .desc-item {
+    color: rgba(209, 206, 255, 1);
+
+    font-family: Lato;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0px;
+    text-align: left;
+  }
+
+  .plan-item__button {
+    box-sizing: border-box;
+
+    color: rgba(239, 239, 239, 1);
+
+    font-family: Lato;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 22px;
+    letter-spacing: 0px;
+    text-align: left;
+
+    background-color: transparent;
+
+    border: 1px solid rgba(239, 239, 239, 1);
+    padding: 16px 20px 16px 20px;
+    transition: all 0.5s;
+
+    cursor: pointer;
+  }
+
+  .plan-item__button:hover {
+    color: rgba(118, 108, 245, 1);
+    border: 1px solid rgba(118, 108, 245, 1);
+  }
+  .plan-item__footnote {
+    color: rgba(239, 239, 239, 0.7);
+
+    font-family: Lato;
+    font-style: italic;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: 0px;
+    text-align: left;
+
+    margin-top: 16px;
+  }
+</style>

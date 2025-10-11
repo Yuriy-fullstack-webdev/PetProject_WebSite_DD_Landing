@@ -1,68 +1,169 @@
 ---
+import { Image } from "astro:assets";
 import sound from "../assets/sound/nav-sound.mp3";
+
+const imgUrl="/src/assets/images/advantages/";
+const cards = [
+  {
+    id: "design",
+    title: "Дизайн",
+    imgName: "design-img.jpg",
+    tagline:
+      "Ми використовуємо дизайн як потужний інструмент для створення зручних естетичних та функціональних сайтів, які вирішують проблеми користувачів, покращують взаємодію з брендом і забезпечують високу конверсію.",
+    headline: "Які проблеми ми вирішуємо за допомогою дизайнерських рішень:",
+    description: [
+      "Неадаптивність сайту",
+      "Складність у навігації",
+      "Відсутність унікальності",
+      "Низька залученість",
+      "Низька швидкість завантаження",
+      "Складність у передачі ключових повідомлень",
+      "Відсутність довіри до бренду",
+      "Погані показники конверсії",
+    ],
+  },
+  {
+    id: "development",
+    title: "Розробка",
+    imgName:"development-img.png",
+    tagline:
+      "Ми створюємо сайти, які вирішують ключові проблеми бізнесу: підвищують впізнаваність бренду, залучають нових клієнтів, покращують взаємодію з аудиторією, автоматизують процеси продажів, забезпечують зручність користувачів, підвищують конверсію, розширюють ринкову присутність та забезпечують конкурентну перевагу.",
+    headline: "Ми створюємо сучасні сайти, використовуючи передові технології, які забезпечують швидкість, безпеку та інноваційність:",
+    description: [
+      "Javascript та Svelte.js для інтерактивних інтерфейсів",
+      "RESTful API для інтеграції з іншими сервісами",
+      "Node.js для швидкої back-end розробки",
+      "Progressive Web Apps (PWA) для офлайн-доступу",
+      "GraphQL для ефективного управління даними",
+      "Автоматизоване тестування для якості коду",
+      "Хмарні рішення (AWS, Google Cloud) для масштабованості",
+      "SEO-оптимізація для підвищення видимості",
+    ],
+  },
+  {
+    id: "content",
+    title: "Контент-стратегія",
+    imgName:"content-img.png",
+    tagline:
+      "Ми розробляємо продумані та ефективні контент-стратегії, які вирішують ключові завдання бізнесу: допомагають підвищити впізнаваність бренду, залучити нових клієнтів, покращити взаємодію з аудиторією, автоматизувати процеси продажів, забезпечити зручність користувачів, підвищити конверсію, розширити ринкову присутність та здобути конкурентну перевагу.",
+    headline: "Ми створюємо ефективні контент-плани, використовуючи передові підходи, які забезпечують актуальність, цінність та ефективність:",
+    description: [
+      "Аналіз аудиторії та конкурентів для формування УТП",
+      "Копірайтинг для залучення та утримання уваги ",
+      "Визначення ключових повідомлень та ToV бренду",
+      "Створення мультимедійного контенту (зображення, відео)",
+      "Створення контент-плану для систематичної публікації",
+      "Аналітика ефективності контенту",
+      "SEO-оптимізація контенту для підвищення видимості",
+      "Інтеграція контенту з маркетинговими та РК",
+    ],
+  },
+  {
+    id: "seo",
+    title: "SEO-оптимізація",
+    imgName:"seo-img.jpeg",
+    tagline:
+      "Ми проводимо SEO-оптимізацію, яка вирішує ключові завдання бізнесу: підвищує видимість бренду, залучає органічний трафік, покращує позиції в пошуковій видачі, автоматизує процеси просування, забезпечує високу якість трафіку, підвищує конверсію, розширює ринкову присутність та забезпечує довгострокову конкурентну перевагу.",
+    headline: "Ми використовуємо сучасні SEO-інструменти, що забезпечують ефективність, точність та інноваційність:",
+    description: [
+      "Технічний аудит сайту для виявлення помилок",
+      "Аналіз конкурентів для виявлення нових можливостей",
+      "Збір та аналіз семантичного ядра для релевантності",
+      "Оптимізація швидкості завантаження",
+      "Внутрішня оптимізація (метатеги, структура URL і т.д)",
+      "Налаштування аналітики (Google Analytics, Search Console)",
+      "Робота з зовнішніми посиланнями",
+      "Регулярна звітність про досягнуті результати",
+    ],
+  },
+  {
+    id: "support",
+    title: "Підтримка",
+    imgName:"support-img.jpeg",
+    tagline:
+      "Ми надаємо комплексну технічну підтримку, яка вирішує ключові питання після запуску сайту: забезпечує стабільну роботу, оперативне виправлення помилок, оновлення системи, що покращує взаємодію з аудиторією, автоматизує процеси оновлень, забезпечує безперебійність роботи, підвищує безпеку, розширює функціонал та забезпечує довгострокову конкурентну перевагу.",
+    headline: "Ми надаємо підтримку, використовуючи передові інструменти, які забезпечують швидкість, безпеку та інноваційність:",
+    description: [
+      "Технічний аудит сайту для виявлення та усунення проблем",
+      "Аналіз та усунення вразливостей для підвищення безпеки",
+      "Оновлення системи управління контентом (CMS) та плагінів",
+      "Оптимізація швидкості завантаження сторінок сайту",
+      "Моніторинг роботи сайту для швидкого реагування",
+      "Консультування та навчання щодо роботи з сайтом",
+      "Створення регулярних резервних копій для захисту даних",
+      "Доопрацювання та розширення функціоналу за запитом",
+    ],
+  },
+];
+
+
 ---
 
-<section id="advantages" class="advantages">
+<section id="advantages" class="advantages" aria-labelledby="advantages-title">
   <div class="container">
     <header class="header-block header-block--center" data-color="black">
       <p class="header-supertitle">Наші переваги</p>
-      <h2 class="header-title title-h2">
+      <h2 class="header-title title-h2" id="advantages-title">
         Креатив<span class="dot">.&ensp;</span>Результат<span class="dot">.&ensp;</span>Інновації<span class="dot"
           >.&ensp;</span
         >
       </h2>
       <p class="header-subtitle">
         Ми завжди маємо для вас свіжі ідеї та сучасний погляд на дизайн. Наші пріоритети - це гнучкі ціни та
-        індивідуальний підхід до кожного клієнта. Ми використовуємо новітні технології для максимальної ефективності та
-        орієнтуємось на результат. Працюючи, ми повністю віддаємось вашому проекту.
+        індивідуальний підхід до кожного клієнта. Ми використовуємо новітні технології для максимальної ефективності та орієнтуємось на результат. Працюючи, ми повністю віддаємось вашому проекту.
       </p>
     </header>
     <main>
       <nav class="nav">
-        <ul class="nav-list">
-          <li class="nav-item nav-item--activ">
-            <button class="nav-item__button">Дизайн</button>
-          </li>
-          <li class="nav-item">
-            <button class="nav-item__button">Розробка</button>
-          </li>
-          <li class="nav-item"><button class="nav-item__button">Контент-стратегія</button></li>
-          <li class="nav-item"><button class="nav-item__button">SEO-оптимізація</button></li>
-          <li class="nav-item"><button class="nav-item__button">Підтримка</button></li>
-        </ul>
-        <audio class="nav-sound--hover" src={sound} preload="metadata"> Ваш браузер не поддерживает audio на HTML5. </audio>
+          <ul class="nav-list" role="tablist" aria-label="Навігація">
+            {cards.map((item, idx) => (
+            <li class={`nav-item ${idx===0 ? 'nav-item--activ' : '' }`} role="presentation">
+              <button class="nav-item__button" role="tab" id={`tab-${item.id}`} aria-controls={`panel-${item.id}`}
+                aria-selected={idx===0 ? 'true' : 'false' } tabindex={idx===0 ? '0' : '-1' }>
+                {item.title}
+              </button>
+            </li>
+            ))}
+          </ul>
+        <audio class="nav-sound--hover" src={sound} preload="metadata"
+          aria-label="Звуковий ефект мяу при наведенні на елемент навігації">
+          Ваш браузер не поддерживает audio на HTML5.
+        </audio>
       </nav>
       <section class="cards">
-        <div class="card">
-          <div class="card-img">
-            <div class="card-img__img"></div>
+        {
+        cards.map((card, idx) => (
+          <div class="card" role="tabpanel" 
+          id={`panel-${card.id}`} aria-labelledby={`tab-${card.id}`}
+          tabindex={idx===0 ? '0' : '-1' }  hidden={idx===0 ? undefined : true}>
+
+        <div class="card-img">
+            <div class="card-img__img-box">
+            <Image class="card-img__img-box__image"
+            src={`${imgUrl}${card.imgName}`}
+            alt={card.title} width={383} height={383}/>  
+            </div>
           </div>
           <div class="card-content">
-            <h3 class="card-content__title title-h3">Дизайн</h3>
-            <p class="card-content__tagline">
-              Ми використовуємо дизайн як потужний інструмент для створення зручних, естетичних та функціональних
-              сайтів, які вирішують проблеми користувачів, покращують взаємодію з брендом і забезпечують високу
-              конверсію.
-            </p>
+            <h3 class="card-content__title title-h3">{card.title}</h3>
+            <p class="card-content__tagline">{card.tagline}</p>
             <div class="card-desc">
-              <p class="card-desc__headline">Які проблеми ми вирішуємо за допомогою дизайнерських рішень:</p>
+              <p class="card-desc__headline">{card.headline}</p>
               <ul class="desc-list">
-                <li class="desc-item">Неадаптивність сайту</li>
-                <li class="desc-item">Складність у навігації</li>
-                <li class="desc-item">Відсутність унікальності</li>
-                <li class="desc-item">Низька залученість</li>
-                <li class="desc-item">Низька швидкість завантаження</li>
-                <li class="desc-item">Складність у передачі ключових повідомлень</li>
-                <li class="desc-item">Відсутність довіри до бренду</li>
-                <li class="desc-item">Погані показники конверсії</li>
+                {
+                  card.description.map((description) => (
+                    <li class="desc-item">{description}</li>
+                  ))
+                }
               </ul>
             </div>
           </div>
-        </div>
-      </section>
+        </div>          
+        ))}
+        </section>
     </main>
   </div>
-  <section class="advantages-pattern">
+  <section class="advantages-pattern" aria-hidden="true">
     <div class="advantages-pattern__wrap">
       <div class="advantages-pattern__parallelogram"></div>
       <div class="advantages-pattern__parallelogram2 figure637-119"></div>
@@ -81,6 +182,7 @@ import sound from "../assets/sound/nav-sound.mp3";
     buttons.forEach((button: HTMLButtonElement) => {
       button.addEventListener("mouseenter", (): void => {
         audio.currentTime = 0;
+        audio.volume = 0.1;
         audio.play().catch((error) => {
           console.warn("Audio playback initiated by mouseenter failed:", error);
         });
@@ -92,9 +194,58 @@ import sound from "../assets/sound/nav-sound.mp3";
       });
     });
   }
+
+  // 1. Отримуємо контейнери
+  const tabList = document.querySelector('.nav-list');
+  const cardSection = document.querySelector('.cards');
+
+  if (tabList && cardSection) {
+    tabList.addEventListener('click', (event) => {
+      const targetElement = event.target as Element;
+
+      const button = targetElement.closest('[role="tab"]');
+      if (!button) return; // Клікнули не на кнопку
+
+      // 2. Визначаємо, яку панель потрібно активувати
+      const targetPanelId = button.getAttribute('aria-controls'); 
+
+      // 3. Знімаємо активний стан з усіх кнопок і карток
+      tabList.querySelectorAll('[role="tab"]').forEach(tab => {
+        tab.setAttribute('aria-selected', 'false');
+        tab.setAttribute('tabindex', '-1');
+      });
+
+      cardSection.querySelectorAll('[role="tabpanel"]').forEach(panel => {
+        panel.setAttribute('hidden', 'true');
+        panel.setAttribute('tabindex', '-1');
+      });
+
+      // 4. Встановлюємо активний стан для поточної кнопки
+      button.setAttribute('aria-selected', 'true');
+      button.setAttribute('tabindex', '0');
+      
+      // 5. Робимо видимою потрібну картку (панель)
+      if (!targetPanelId) {
+        console.error("Не знайдено атрибут aria-controls!");
+        return; // Виходимо, щоб уникнути помилки
+    }
+      const targetPanel = document.getElementById(targetPanelId);
+      if (targetPanel) {
+        targetPanel.removeAttribute('hidden');
+        targetPanel.setAttribute('tabindex', '0');
+      }
+
+      // Опціонально: оновлення класу 'nav-item--activ'
+      tabList.querySelector('.nav-item--activ')?.classList.remove('nav-item--activ');
+      button.closest('.nav-item')?.classList.add('nav-item--activ');
+    });
+  }
 </script>
 
 <style>
+  [hidden] {
+    display: none !important; /* Використовуйте !important, щоб подолати інші правила, якщо необхідно */
+}
   .advantages {
     position: relative;
     padding-top: 120px;
@@ -177,7 +328,7 @@ import sound from "../assets/sound/nav-sound.mp3";
     width: calc(100% + 2 * var(--margin-line));
     height: 2px;
     transition: width 0.5s;
-    background-color: var(--hover--accent5);
+    background-color: var(--hover-accent5);
   }
 
   .nav-item__button {
@@ -197,6 +348,10 @@ import sound from "../assets/sound/nav-sound.mp3";
     border: transparent;
   }
 
+  .nav-item__button:hover {
+    color: var(--hover-accent5);
+  }
+
   .nav-item__button:after {
     content: "";
     display: block;
@@ -204,12 +359,10 @@ import sound from "../assets/sound/nav-sound.mp3";
     bottom: calc((var(--margin-bottom) + var(--padding-button-line)) * (-1));
     left: 50%;
     transform: translateX(-50%);
-    /* bottom: var(--margin-bottom); */
-
     width: 0;
     height: 2px;
-    transition: width 0.5s;
-    background-color: var(--hover--accent5);
+    transition: width 1s;
+    background-color: var(--hover-primary-opacity); 
   }
   .nav-item__button:hover:after {
     content: "";
@@ -222,7 +375,7 @@ import sound from "../assets/sound/nav-sound.mp3";
     height: 2px;
     /* bottom: var(--margin-bottom); */
     transition: width 0.5s;
-    background-color: red;
+    background-color: var(--hover-accent5);
   }
 
   .cards {
@@ -232,10 +385,10 @@ import sound from "../assets/sound/nav-sound.mp3";
   .card {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    column-gap: var(--gap-base);
-    /* width: 1150px; */
-    height: 505px;
+    align-items: stretch;
+    column-gap: calc(var(--gap-base)*3);
+    min-height: 506px;
+    height: 100%;
 
     padding: 24px 16px 24px 16px;
 
@@ -243,10 +396,13 @@ import sound from "../assets/sound/nav-sound.mp3";
     background: rgba(255, 255, 255, 1);
   }
   .card-img {
+    align-self: center;
     position: relative;
 
     max-width: 435px;
-    width: 100%;
+    min-width: 320px; /*** ПОКА НА ГЛАЗ  */
+  width: 100%;
+  height: 100%;
     aspect-ratio: 1;
 
     display: flex;
@@ -258,14 +414,26 @@ import sound from "../assets/sound/nav-sound.mp3";
     border-radius: 50%;
   }
 
-  .card-img__img {
+  .card-img__img-box {
     width: 88%;
-    height: 88%;
+    aspect-ratio: 1;
     border-radius: 50%;
-    background-color: red;
+    overflow: hidden;
   }
+
+  .card-img__img-box__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
   .card-content {
-    max-width: 547px;
+    display: flex;
+    flex-direction: column;
+    max-width: 546px;
+    max-height: 100%;
+    row-gap: var(--gap-base);
+    justify-content: space-between;
   }
   .card-content__title {
     color: var(--text-accent5);
@@ -273,39 +441,41 @@ import sound from "../assets/sound/nav-sound.mp3";
   .card-content__tagline {
     color: var(--text-dark-3);
 
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
-    line-height: 22px;
+    line-height: 19px;
     letter-spacing: 0px;
     text-align: left;
-
-    margin: 24px 0;
   }
   .card-desc {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
     letter-spacing: 0px;
     text-align: left;
   }
   .card-desc__headline {
     color: var(--text-dark-3);
 
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 400;
-    line-height: 22px;
+    line-height: 19px;
     margin-bottom: 16px;
   }
   .desc-list {
+    flex-grow: 1;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-
-    row-gap: 24px;
-    column-gap: 50px;
+    justify-content: space-between;
     align-items: center;
+    grid-template-columns: repeat(2, minmax(auto, 248px));
+    grid-auto-rows: minmax(34px, auto);    
+    gap: var(--gap-base);
   }
   .desc-item {
     position: relative;
     color: var(--text-dark-3);
 
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 300;
     line-height: 19px;
     font-style: italic;
@@ -323,7 +493,7 @@ import sound from "../assets/sound/nav-sound.mp3";
     width: 22px;
     height: 22px;
 
-    background-image: url("../assets/images/ball.png");
+    background-image: url("../icons/icon-ball-2.svg");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;

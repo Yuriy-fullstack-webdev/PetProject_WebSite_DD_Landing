@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import HeaderBlock from "./blocks/HeaderBlock.astro";
 
 const HeaderData = [
@@ -10,21 +11,294 @@ const HeaderData = [
     position: "center", // Необязательный, с дефолтом "left" | "center";
   },
 ];
+
+const price = [
+  {
+    id: "design",
+    title: "дизайн",
+    imgSrc: "/src/assets/images/design-img.png",
+    alt: "icon design",
+    // desc: [
+    //   {
+    //     title: "Лендинг/Односторінковий сайт",
+    //     text: "Розробка концепції, UI/UX дизайн, візуальний дизайн, адаптивний дизайн (під різні пристрої), базові макети.",
+    //     price: 6000,
+    //   },
+    //   {
+    //     title: "Сайт-візитка/Корпоративний сайт (до 10 сторінок)",
+    //     text: "Розробка концепції, UI/UX дизайн основних сторінок (головна, про компанію, послуги, контакти тощо), візуальний дизайн, адаптивний дизайн, макети всіх сторінок, базова анімація (за потреби).",
+    //     price: 15000,
+    //   },
+    //   {
+    //     title: "Складний / Кастомний сайт",
+    //     text: "Індивідуальна розробка концепції, глибокий UI/UX аналіз, розробка складної структури та функціоналу, унікальний візуальний дизайн, розширена анімація та інтерактив, адаптивний дизайн, детальні макети всіх сторінок та елементів. Може включати прототипування високої точності.",
+    //     price: 75000,
+    //   },
+    //   {
+    //     title: "Інтернет-магазин (базовий функціонал)",
+    //     text: "Розробка концепції, UI/UX дизайн основних сторінок (головна, каталог товарів, картка товару, кошик, оформлення замовлення, особистий кабінет тощо), візуальний дизайн, адаптивний дизайн, макети всіх ключових сторінок, дизайн елементів управління (кнопки, форми тощо).",
+    //     price: 25000,
+    //   },
+    // ],
+  },
+  {
+    id: "dev",
+    title: "розробка",
+    imgSrc: "/src/assets/images/dev-img.png",
+    alt: "icon dev",
+    // desc: [
+    //   {
+    //     title: "Лендинг/Промо-сайт",
+    //     text: "Розробка концепції, UI/UX дизайн, візуальний дизайн, адаптивний дизайн (під різні пристрої), базові макети.",
+    //     info: ""
+    //     price: 6000,
+    //   },
+    //   {
+    //     title: "Сайт-візитка/Корпоративний сайт (до 10 сторінок)",
+    //     text: "Розробка концепції, UI/UX дизайн основних сторінок (головна, про компанію, послуги, контакти тощо), візуальний дизайн, адаптивний дизайн, макети всіх сторінок, базова анімація (за потреби).",
+    //     price: 15000,
+    //   },
+    //   {
+    //     title: "Складний / Кастомний сайт",
+    //     text: "Індивідуальна розробка концепції, глибокий UI/UX аналіз, розробка складної структури та функціоналу, унікальний візуальний дизайн, розширена анімація та інтерактив, адаптивний дизайн, детальні макети всіх сторінок та елементів. Може включати прототипування високої точності.",
+    //     price: 75000,
+    //   },
+    //   {
+    //     title: "Інтернет-магазин (базовий функціонал)",
+    //     text: "Розробка концепції, UI/UX дизайн основних сторінок (головна, каталог товарів, картка товару, кошик, оформлення замовлення, особистий кабінет тощо), візуальний дизайн, адаптивний дизайн, макети всіх ключових сторінок, дизайн елементів управління (кнопки, форми тощо).",
+    //     price: 25000,
+    //   },
+    // ],
+  },
+];
 ---
+
 <section id="price" class="price">
-    <div class="container">
-      <HeaderBlock data={HeaderData}/>
-      <main>
-              
-      </main>
-    </div>
-    </section>
-  
-  
-    <style>
-      .price {
-          padding-top: 150px;
-          padding-bottom: 120px;
-          background-color: var(--bg-primary);
-      }
-  </style>
+  <div class="container">
+    <HeaderBlock data={HeaderData} />
+    <main class="main">
+      <section class="price-header">
+        {
+          price.map((item) => (
+            <div class:list={["price-header__item", `price-header__item-${item.id}`]}>
+              <h3 class:list={["header-item", `${item.id}--color`]}>{item.title}</h3>
+              <Image class="header-img" src={item.imgSrc} alt={item.alt} width={44} height={44} />
+            </div>
+          ))
+        }
+      </section>
+      <section class="price-main">
+        <ul class="price-list">
+          <li class="price-list__item">
+            <!-- `${item.id}--color` -->
+            <h4 class="price-list__item-title design--color">Лендинг/Промо-сайт</h4>
+            <div class="price-list__item-content">
+              <!-- `${item.id}-content` -->
+              <div class="item-content design-content">
+                <p class="item-content__desc">
+                  Розробка концепції, UI/UX дизайн, візуальний дизайн, адаптивний дизайн (під різні пристрої), базові
+                  макети.
+                </p>
+              </div>
+              <ul class="item-content__tariff">
+                <li class="item-content__tariff-item">
+                  <p class="tariff-item__price"><span>від&nbsp;</span><strong>15000</strong><span>&nbsp;грн</span></p>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+        <ul class="price-list">
+          <li class="price-list__item">
+            <!-- `${item.id}--color` -->
+            <h4 class="price-list__item-title dev--color">Лендинг/Промо-сайт</h4>
+            <div class="price-list__item-content">
+              <!-- `${item.id}-content` -->
+              <div class="item-content dev-content">
+                <p class="item-content__desc">
+                  Розробка концепції, UI/UX дизайн, візуальний дизайн, адаптивний дизайн (під різні пристрої), базові
+                  макети.
+                </p>
+                <!-- для дизайна этого блока нет-->
+                <ul class="item-content__list">
+                  <li>Кількість сторінок: 1-3 (приблизна)</li>
+                  <li>Кількість сторінок: 1-3 (приблизна)</li>
+                </ul>
+              </div>
+              <ul class="item-content__tariff">
+                <!-- для дизайна этого блока нет-->
+                <li class="item-content__tariff-item">
+                  <p class="tariff-item__dev">CMS Wordpress</p>
+                  <p class="tariff-item__price"><span>від&nbsp;</span><strong>8000</strong><span>&nbsp;грн</span></p>
+                </li>
+                <li class="item-content__tariff-item">
+                  <!-- где CMS Wordpress для дизайна нету-->
+                  <p class="tariff-item__dev">CMS Wordpress</p>
+                  <p class="tariff-item__price"><span>від&nbsp;</span><strong>15000</strong><span>&nbsp;грн</span></p>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </main>
+  </div>
+</section>
+
+<style>
+  .main {
+    --margin-main: 40px;
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--margin-main);
+    margin-top: var(--margin-main);
+  }
+
+  .price {
+    padding-top: calc(150px - var(--title-margin-top));
+    padding-bottom: 146px;
+    background-color: var(--bg-primary);
+  }
+
+  .price-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px dashed rgba(239, 239, 239, 0.25);
+    padding-bottom: 20px;
+  }
+  .price-header__item {
+    display: flex;
+    align-items: center;
+    column-gap: 24px;
+    height: max-content;
+  }
+  .price-header__item-dev {
+    flex-direction: row-reverse;
+  }
+
+  .header-item {
+    font-family: Lato;
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 43px;
+    letter-spacing: 0px;
+    text-align: center;
+    text-transform: capitalize;
+  }
+
+  .header-img {
+    object-fit: contain;
+  }
+
+  .price-main {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .price-list {
+    max-width: 520px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    row-gap: 40px;
+
+    background: rgba(41, 40, 57, 1);
+    padding: 44px 36px 44px 36px;
+  }
+
+  .price-list__item {
+    width: 100%;
+  }
+
+  .price-list__item-title {
+    font-family: Lato;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0px;
+    text-align: left;
+  }
+  .price-list__item-content {
+    margin-top: 16px;
+    display: flex;
+    justify-content: space-between;
+
+    column-gap: var(--gap-base);
+  }
+
+  .item-content {
+    max-width: 280px;
+    color: rgba(76, 73, 94, 1);
+    font-family: Lato;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: 0px;
+    text-align: left;
+  }
+
+  .item-content__tariff {
+    width: max-content;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    row-gap: var(--gap-base);
+  }
+
+  .item-content__tariff-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: calc(var(--gap-base) / 2);
+  }
+
+  .item-content__tariff-item p {
+    text-wrap: nowrap;
+  }
+  .tariff-item__dev {
+    color: rgba(76, 73, 94, 1);
+    font-family: Lato;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 12px;
+    letter-spacing: 0px;
+    text-align: left;
+  }
+
+  .tariff-item__price {
+    color: rgba(255, 159, 28, 1);
+
+    font-family: Lato;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0px;
+    text-align: left;
+  }
+
+  .design--color {
+    color: rgba(118, 108, 245, 1);
+  }
+
+  .design-content ~ .item-content__tariff {
+    align-self: flex-end;
+  }
+
+  .dev--color {
+    color: rgba(35, 158, 232, 1);
+  }
+  .dev-content .item-content__desc {
+    font-weight: 700;
+  }
+
+  .dev-content .item-content__list {
+    list-style-type: disc;
+    list-style-position: inside;
+  }
+
+  .dev-content .item-content__tariff {
+    min-width: 170px;
+  }
+</style>

@@ -15,7 +15,6 @@ const HeaderData = [
   },
 ];
 ---
-
 <section id="portfolio" class="portfolio">
   <div class="container">
     <HeaderBlock data={HeaderData} />
@@ -107,6 +106,9 @@ const HeaderData = [
     </main>
   </div>
 </section>
+<section>
+  ------------------------------- СЕПАРАТОР -----------------------
+</section>
 <!-- Скрипт Каруселі -->
 <script>
   // Імпортуємо EmblaCarousel безпосередньо в скрипт
@@ -119,10 +121,6 @@ const HeaderData = [
 
   // Ініціалізуємо карусель
   const embla = EmblaCarousel(viewportNode);
-
-  // Додаємо обробники подій
-  // prevButtonNode.addEventListener('click', embla.scrollPrev, false);
-  // nextButtonNode.addEventListener('click', embla.scrollNext, false);
   prevButtonNode.addEventListener("click", () => embla.scrollPrev(), false);
   nextButtonNode.addEventListener("click", () => embla.scrollNext(), false);
 </script>

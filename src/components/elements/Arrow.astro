@@ -1,0 +1,32 @@
+---
+interface Props {
+  arrow: string;
+}
+
+const { arrow } = Astro.props;
+---
+
+<svg
+  class:list={["arrow", `arrow--${arrow}`]}
+  viewBox="0 0 40 40"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="40"
+  height="40"
+  fill="none"
+>
+  <rect id="Left" width="40" height="40" x="0" y="0"></rect>
+  <path
+    id="path"
+    d="M25.833 30L15.833 20L25.833 10"
+    stroke="rgb(128,128,128)"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="1.5"></path>
+</svg>
+
+<style>
+    .arrow--right {
+transform: rotate(180deg);
+    }
+</style>

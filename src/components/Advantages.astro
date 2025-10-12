@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 import sound from "../assets/sound/nav-sound.mp3";
 
-const imgUrl="/src/assets/images/advantages/";
+const imgUrl = "/src/assets/images/advantages/";
 const cards = [
   {
     id: "design",
@@ -25,10 +25,11 @@ const cards = [
   {
     id: "development",
     title: "Розробка",
-    imgName:"development-img.png",
+    imgName: "development-img.png",
     tagline:
       "Ми створюємо сайти, які вирішують ключові проблеми бізнесу: підвищують впізнаваність бренду, залучають нових клієнтів, покращують взаємодію з аудиторією, автоматизують процеси продажів, забезпечують зручність користувачів, підвищують конверсію, розширюють ринкову присутність та забезпечують конкурентну перевагу.",
-    headline: "Ми створюємо сучасні сайти, використовуючи передові технології, які забезпечують швидкість, безпеку та інноваційність:",
+    headline:
+      "Ми створюємо сучасні сайти, використовуючи передові технології, які забезпечують швидкість, безпеку та інноваційність:",
     description: [
       "Javascript та Svelte.js для інтерактивних інтерфейсів",
       "RESTful API для інтеграції з іншими сервісами",
@@ -43,10 +44,11 @@ const cards = [
   {
     id: "content",
     title: "Контент-стратегія",
-    imgName:"content-img.png",
+    imgName: "content-img.png",
     tagline:
       "Ми розробляємо продумані та ефективні контент-стратегії, які вирішують ключові завдання бізнесу: допомагають підвищити впізнаваність бренду, залучити нових клієнтів, покращити взаємодію з аудиторією, автоматизувати процеси продажів, забезпечити зручність користувачів, підвищити конверсію, розширити ринкову присутність та здобути конкурентну перевагу.",
-    headline: "Ми створюємо ефективні контент-плани, використовуючи передові підходи, які забезпечують актуальність, цінність та ефективність:",
+    headline:
+      "Ми створюємо ефективні контент-плани, використовуючи передові підходи, які забезпечують актуальність, цінність та ефективність:",
     description: [
       "Аналіз аудиторії та конкурентів для формування УТП",
       "Копірайтинг для залучення та утримання уваги ",
@@ -61,7 +63,7 @@ const cards = [
   {
     id: "seo",
     title: "SEO-оптимізація",
-    imgName:"seo-img.jpeg",
+    imgName: "seo-img.jpeg",
     tagline:
       "Ми проводимо SEO-оптимізацію, яка вирішує ключові завдання бізнесу: підвищує видимість бренду, залучає органічний трафік, покращує позиції в пошуковій видачі, автоматизує процеси просування, забезпечує високу якість трафіку, підвищує конверсію, розширює ринкову присутність та забезпечує довгострокову конкурентну перевагу.",
     headline: "Ми використовуємо сучасні SEO-інструменти, що забезпечують ефективність, точність та інноваційність:",
@@ -79,10 +81,11 @@ const cards = [
   {
     id: "support",
     title: "Підтримка",
-    imgName:"support-img.jpeg",
+    imgName: "support-img.jpeg",
     tagline:
       "Ми надаємо комплексну технічну підтримку, яка вирішує ключові питання після запуску сайту: забезпечує стабільну роботу, оперативне виправлення помилок, оновлення системи, що покращує взаємодію з аудиторією, автоматизує процеси оновлень, забезпечує безперебійність роботи, підвищує безпеку, розширює функціонал та забезпечує довгострокову конкурентну перевагу.",
-    headline: "Ми надаємо підтримку, використовуючи передові інструменти, які забезпечують швидкість, безпеку та інноваційність:",
+    headline:
+      "Ми надаємо підтримку, використовуючи передові інструменти, які забезпечують швидкість, безпеку та інноваційність:",
     description: [
       "Технічний аудит сайту для виявлення та усунення проблем",
       "Аналіз та усунення вразливостей для підвищення безпеки",
@@ -95,8 +98,6 @@ const cards = [
     ],
   },
 ];
-
-
 ---
 
 <section id="advantages" class="advantages" aria-labelledby="advantages-title">
@@ -110,57 +111,77 @@ const cards = [
       </h2>
       <p class="header-subtitle">
         Ми завжди маємо для вас свіжі ідеї та сучасний погляд на дизайн. Наші пріоритети - це гнучкі ціни та
-        індивідуальний підхід до кожного клієнта. Ми використовуємо новітні технології для максимальної ефективності та орієнтуємось на результат. Працюючи, ми повністю віддаємось вашому проекту.
+        індивідуальний підхід до кожного клієнта. Ми використовуємо новітні технології для максимальної ефективності та
+        орієнтуємось на результат. Працюючи, ми повністю віддаємось вашому проекту.
       </p>
     </header>
     <main>
       <nav class="nav">
-          <ul class="nav-list" role="tablist" aria-label="Навігація">
-            {cards.map((item, idx) => (
-            <li class={`nav-item ${idx===0 ? 'nav-item--activ' : '' }`} role="presentation">
-              <button class="nav-item__button" role="tab" id={`tab-${item.id}`} aria-controls={`panel-${item.id}`}
-                aria-selected={idx===0 ? 'true' : 'false' } tabindex={idx===0 ? '0' : '-1' }>
-                {item.title}
-              </button>
-            </li>
-            ))}
-          </ul>
-        <audio class="nav-sound--hover" src={sound} preload="metadata"
-          aria-label="Звуковий ефект мяу при наведенні на елемент навігації">
+        <ul class="nav-list" role="tablist" aria-label="Навігація">
+          {
+            cards.map((item, idx) => (
+              <li class={`nav-item ${idx === 0 ? "nav-item--activ" : ""}`} role="presentation">
+                <button
+                  class="nav-item__button"
+                  role="tab"
+                  id={`tab-${item.id}`}
+                  aria-controls={`panel-${item.id}`}
+                  aria-selected={idx === 0 ? "true" : "false"}
+                  tabindex={idx === 0 ? "0" : "-1"}
+                >
+                  {item.title}
+                </button>
+              </li>
+            ))
+          }
+        </ul>
+        <audio
+          class="nav-sound--hover"
+          src={sound}
+          preload="metadata"
+          aria-label="Звуковий ефект мяу при наведенні на елемент навігації"
+        >
           Ваш браузер не поддерживает audio на HTML5.
         </audio>
       </nav>
       <section class="cards">
         {
-        cards.map((card, idx) => (
-          <div class="card" role="tabpanel" 
-          id={`panel-${card.id}`} aria-labelledby={`tab-${card.id}`}
-          tabindex={idx===0 ? '0' : '-1' }  hidden={idx===0 ? undefined : true}>
-
-        <div class="card-img">
-            <div class="card-img__img-box">
-            <Image class="card-img__img-box__image"
-            src={`${imgUrl}${card.imgName}`}
-            alt={card.title} width={383} height={383}/>  
+          cards.map((card, idx) => (
+            <div
+              class="card"
+              role="tabpanel"
+              id={`panel-${card.id}`}
+              aria-labelledby={`tab-${card.id}`}
+              tabindex={idx === 0 ? "0" : "-1"}
+              hidden={idx === 0 ? undefined : true}
+            >
+              <div class="card-img">
+                <div class="card-img__img-box">
+                  <Image
+                    class="card-img__img-box__image"
+                    src={`${imgUrl}${card.imgName}`}
+                    alt={card.title}
+                    width={383}
+                    height={383}
+                  />
+                </div>
+              </div>
+              <div class="card-content">
+                <h3 class="card-content__title title-h3">{card.title}</h3>
+                <p class="card-content__tagline">{card.tagline}</p>
+                <div class="card-desc">
+                  <p class="card-desc__headline">{card.headline}</p>
+                  <ul class="desc-list">
+                    {card.description.map((description) => (
+                      <li class="desc-item">{description}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="card-content">
-            <h3 class="card-content__title title-h3">{card.title}</h3>
-            <p class="card-content__tagline">{card.tagline}</p>
-            <div class="card-desc">
-              <p class="card-desc__headline">{card.headline}</p>
-              <ul class="desc-list">
-                {
-                  card.description.map((description) => (
-                    <li class="desc-item">{description}</li>
-                  ))
-                }
-              </ul>
-            </div>
-          </div>
-        </div>          
-        ))}
-        </section>
+          ))
+        }
+      </section>
     </main>
   </div>
   <section class="advantages-pattern" aria-hidden="true">
@@ -172,20 +193,27 @@ const cards = [
 </section>
 
 <script>
-  const audio: HTMLAudioElement | null = document.querySelector(".nav-sound--hover");
   const buttons: NodeListOf<HTMLButtonElement> = document.querySelectorAll(".nav-item__button");
-
+  const audio: HTMLAudioElement | null = document.querySelector(".nav-sound--hover");
+  let audioEnabled = false;
   //Проверяем, существует ли аудиоэлемент
   if (!audio) {
     console.error("Audio element with class '.nav-sound--hover' not found. Sound feature disabled.");
   } else {
+    document.addEventListener( "click", () => {
+        audioEnabled = true; },
+      { once: true }
+    );
     buttons.forEach((button: HTMLButtonElement) => {
       button.addEventListener("mouseenter", (): void => {
-        audio.currentTime = 0;
-        audio.volume = 0.1;
-        audio.play().catch((error) => {
-          console.warn("Audio playback initiated by mouseenter failed:", error);
-        });
+        if (audioEnabled) {
+          // Відтворюємо, тільки якщо користувач вже клікав
+          audio.currentTime = 0;
+          audio.volume = 0.1;
+          audio.play().catch((error) => {
+            console.warn("Audio playback initiated by mouseenter failed:", error);
+          });
+        }
       });
 
       button.addEventListener("mouseleave", (): void => {
@@ -195,57 +223,55 @@ const cards = [
     });
   }
 
-  // 1. Отримуємо контейнери
-  const tabList = document.querySelector('.nav-list');
-  const cardSection = document.querySelector('.cards');
+  const navActiv = document.querySelector(".nav-item--activ");
+  const navList = document.querySelectorAll(".nav-item");
+  const cardList = document.querySelectorAll('.card[role="tabpanel"]');
 
-  if (tabList && cardSection) {
-    tabList.addEventListener('click', (event) => {
-      const targetElement = event.target as Element;
+  navList.forEach((item) =>
+    item.addEventListener("click", () => {
+      // 1. Сначала удаляем активный класс со ВСЕХ элементов в navList
+      navList.forEach((navItem) => {
+        navItem.classList.remove("nav-item--activ");
+      });
+      // 2. Добавляем активный класс ТОЛЬКО к элементу, на который нажали (item)
+      item.classList.add("nav-item--activ");
+    })
+  );
 
-      const button = targetElement.closest('[role="tab"]');
-      if (!button) return; // Клікнули не на кнопку
-
-      // 2. Визначаємо, яку панель потрібно активувати
-      const targetPanelId = button.getAttribute('aria-controls'); 
-
-      // 3. Знімаємо активний стан з усіх кнопок і карток
-      tabList.querySelectorAll('[role="tab"]').forEach(tab => {
-        tab.setAttribute('aria-selected', 'false');
-        tab.setAttribute('tabindex', '-1');
+  buttons.forEach((button) => {
+    let actibTabId = "";
+    button.addEventListener("click", () => {
+      // 1. Сброс ВСЕХ кнопок: Делаем их неактивными
+      buttons.forEach((otherButton) => {
+        otherButton.setAttribute("aria-selected", "false");
+        otherButton.setAttribute("tabindex", "0");
       });
 
-      cardSection.querySelectorAll('[role="tabpanel"]').forEach(panel => {
-        panel.setAttribute('hidden', 'true');
-        panel.setAttribute('tabindex', '-1');
+      // 2. Активация нажатой кнопки: Делаем ЕЁ активной
+      // Устанавливаем aria-selected в 'true' (активно) tabindex в '-1'
+      button.setAttribute("aria-selected", "true");
+      button.setAttribute("tabindex", "-1");
+
+      actibTabId = button.id;
+
+      cardList.forEach((card) => {
+        card.setAttribute("hidden", "");
+        card.setAttribute("tabindex", "-1");
+        let cardId = card.getAttribute("aria-labelledby");
+        if (cardId === actibTabId) {
+          card.removeAttribute("hidden");
+          card.setAttribute("tabindex", "0");
+        }
       });
-
-      // 4. Встановлюємо активний стан для поточної кнопки
-      button.setAttribute('aria-selected', 'true');
-      button.setAttribute('tabindex', '0');
-      
-      // 5. Робимо видимою потрібну картку (панель)
-      if (!targetPanelId) {
-        console.error("Не знайдено атрибут aria-controls!");
-        return; // Виходимо, щоб уникнути помилки
-    }
-      const targetPanel = document.getElementById(targetPanelId);
-      if (targetPanel) {
-        targetPanel.removeAttribute('hidden');
-        targetPanel.setAttribute('tabindex', '0');
-      }
-
-      // Опціонально: оновлення класу 'nav-item--activ'
-      tabList.querySelector('.nav-item--activ')?.classList.remove('nav-item--activ');
-      button.closest('.nav-item')?.classList.add('nav-item--activ');
     });
-  }
+  });
 </script>
 
 <style>
-  [hidden] {
-    display: none !important; /* Використовуйте !important, щоб подолати інші правила, якщо необхідно */
-}
+  .card[hidden] {
+    display: none;
+  }
+
   .advantages {
     position: relative;
     padding-top: 120px;
@@ -362,7 +388,7 @@ const cards = [
     width: 0;
     height: 2px;
     transition: width 1s;
-    background-color: var(--hover-primary-opacity); 
+    background-color: var(--hover-primary-opacity);
   }
   .nav-item__button:hover:after {
     content: "";
@@ -386,7 +412,7 @@ const cards = [
     display: flex;
     justify-content: space-between;
     align-items: stretch;
-    column-gap: calc(var(--gap-base)*3);
+    column-gap: calc(var(--gap-base) * 3);
     min-height: 506px;
     height: 100%;
 
@@ -395,14 +421,15 @@ const cards = [
     box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.25);
     background: rgba(255, 255, 255, 1);
   }
+
   .card-img {
     align-self: center;
     position: relative;
 
     max-width: 435px;
     min-width: 320px; /*** ПОКА НА ГЛАЗ  */
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
     aspect-ratio: 1;
 
     display: flex;
@@ -468,7 +495,7 @@ const cards = [
     justify-content: space-between;
     align-items: center;
     grid-template-columns: repeat(2, minmax(auto, 248px));
-    grid-auto-rows: minmax(34px, auto);    
+    grid-auto-rows: minmax(34px, auto);
     gap: var(--gap-base);
   }
   .desc-item {

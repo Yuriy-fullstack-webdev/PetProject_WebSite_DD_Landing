@@ -2,6 +2,9 @@
 import { Image } from "astro:assets";
 import HeaderBlock from "./blocks/HeaderBlock.astro";
 
+import iconDesign from "../assets/images/design-img.png";
+import iconDev from "../assets/images/dev-img.png";
+
 const HeaderData = [
   {
     title: "Ціни на Дизайн/Розробку",
@@ -16,7 +19,7 @@ const price = [
   {
     id: "design",
     title: "дизайн",
-    imgSrc: "/src/assets/images/design-img.png",
+    imgSrc: iconDesign,
     alt: "icon design",
     desc: [
       {
@@ -44,7 +47,7 @@ const price = [
   {
     id: "dev",
     title: "розробка",
-    imgSrc: "/src/assets/images/dev-img.png",
+    imgSrc: iconDev,
     alt: "icon dev",
     desc: [
       {

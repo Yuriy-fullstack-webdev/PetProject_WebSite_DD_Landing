@@ -201,7 +201,7 @@ const cards = [
   const buttons: NodeListOf<HTMLButtonElement> = document.querySelectorAll(".nav-item__button");
   const audio: HTMLAudioElement | null = document.querySelector(".nav-sound--hover");
   let audioEnabled = false;
-  //Проверяем, существует ли аудиоэлемент
+  {/* Проверяем, существует ли аудиоэлемент */}
   if (!audio) {
     console.error("Audio element with class '.nav-sound--hover' not found. Sound feature disabled.");
   } else {
@@ -212,7 +212,7 @@ const cards = [
     buttons.forEach((button: HTMLButtonElement) => {
       button.addEventListener("mouseenter", (): void => {
         if (audioEnabled) {
-          // Відтворюємо, тільки якщо користувач вже клікав
+          {/* Відтворюємо, тільки якщо користувач вже клікав */}
           audio.currentTime = 0;
           audio.volume = 0.1;
           audio.play().catch((error) => {
@@ -234,11 +234,11 @@ const cards = [
 
   navList.forEach((item) =>
     item.addEventListener("click", () => {
-      // 1. Сначала удаляем активный класс со ВСЕХ элементов в navList
+      {/* 1. Сначала удаляем активный класс со ВСЕХ элементов в navList*/}
       navList.forEach((navItem) => {
         navItem.classList.remove("nav-item--activ");
       });
-      // 2. Добавляем активный класс ТОЛЬКО к элементу, на который нажали (item)
+      {/* 2. Добавляем активный класс ТОЛЬКО к элементу, на который нажали (item)*/}
       item.classList.add("nav-item--activ");
     })
   );
@@ -246,14 +246,13 @@ const cards = [
   buttons.forEach((button) => {
     let actibTabId = "";
     button.addEventListener("click", () => {
-      // 1. Сброс ВСЕХ кнопок: Делаем их неактивными
+      {/* 1. Сброс ВСЕХ кнопок: Делаем их неактивными*/}
       buttons.forEach((otherButton) => {
         otherButton.setAttribute("aria-selected", "false");
         otherButton.setAttribute("tabindex", "0");
       });
-
-      // 2. Активация нажатой кнопки: Делаем ЕЁ активной
-      // Устанавливаем aria-selected в 'true' (активно) tabindex в '-1'
+{/* 2. Активация нажатой кнопки: Делаем ЕЁ активной*/}
+{/* Устанавливаем aria-selected в 'true' (активно) tabindex в '-1'*/}
       button.setAttribute("aria-selected", "true");
       button.setAttribute("tabindex", "-1");
 

@@ -1,4 +1,8 @@
 ---
+import { Image } from "astro:assets";
+import img_1_Src from "../assets/images/about/img1.webp";
+import img_2_Src from "../assets/images/about/img2.webp";
+import img_3_Src from "../assets/images/about/img3.webp";
 import HeaderBlock from "./blocks/HeaderBlock.astro";
 
 const HeaderData = [
@@ -12,111 +16,72 @@ const HeaderData = [
   },
 ];
 
-// Работа с изображением потом переедет в карточку
-import { Image } from "astro:assets";
-import img_1_Src from "../assets/images/about/img1.webp";
-import img_2_Src from "../assets/images/about/img2.webp";
-import img_3_Src from "../assets/images/about/img3.webp";
-
-// СДЕЛАТЬ КОМПОНЕНТ AboutCard + чтение коллекции
-// import AboutCard from "./blocks/AboutCard.astro";
-
-// import { defineCollection, z } from 'astro:content';
-// import { glob, file } from 'astro/loaders';
-
-// const cards = defineCollection({
-// "content"
-//   schema: z.object({
-//     title: z.string(),
-//     imgSrc: z.string()
-//   })
-// });
-
-// export const collections = { cards };
+const cards = [
+  {
+    title: "Розширення охоплення аудиторії та географії продажів",
+    src: img_1_Src,
+    textHtml: `<p>
+            3% споживачів починають пошук товарів чи послуг онлайн, незалежно від того, де вони планують здійснити
+            покупку
+          </p>
+          <p>Бізнеси з веб-сайтами залучають в середньому на 70% більше клієнтів, ніж без онлайн-присутності</p>
+          <p>
+            81% споживачів досліджують товар/послугу в інтернеті перед покупкою, що робить сайт важливим каналом
+            інформування
+          </p>`,
+  },
+  {
+    title: "Зниження операційних витрат та автоматизація процесів",
+    src: img_2_Src,
+    textHtml: `<p>Автоматизація процесу обробки замовлень через сайт знижує витрати на персонал до 30%</p>
+          <p>
+            Самообслуговування клієнтів через сайт (FAQ, онлайн-підтримка) зменшує кількість звернень до служби
+            підтримки на 40-60%
+          </p>
+          <p>Інтеграція CRM з сайтом підвищує ефективність продажів на 29% та скорочує цикл продажів на 8-14%</p>`,
+  },
+  {
+    title: "Розширення охоплення аудиторії та географії продажів",
+    src: img_3_Src,
+    textHtml: `<p>
+            3% споживачів починають пошук товарів чи послуг онлайн, незалежно від того, де вони планують здійснити
+            покупку
+          </p>
+          <p>Бізнеси з веб-сайтами залучають в середньому на 70% більше клієнтів, ніж без онлайн-присутності</p>
+          <p>
+            81% споживачів досліджують товар/послугу в інтернеті перед покупкою, що робить сайт важливим каналом
+            інформування
+          </p>`,
+  },
+];
 ---
 
 <section id="about" class="about">
   <div class="container">
     <HeaderBlock data={HeaderData} />
     <main class="cards">
-      <!-- 1 --- <AboutCard /> -->
-      <section class="card">
-        <Image
-          class="card-img"
-          src={img_1_Src}
-          alt="Icon"
-          widths={[64, 80]}
-          sizes="(max-width: 768px) 64px, (min-width: 767px) 80px"
-        />
-        <h2 class="card-title title-h2">Розширення охоплення аудиторії та географії продажів</h2>
-        <article class="card-content">
-          <p>
-            3% споживачів починають пошук товарів чи послуг онлайн, незалежно від того, де вони планують здійснити
-            покупку
-          </p>
-          <p>
-            Бізнеси з веб-сайтами залучають в середньому на 70% більше клієнтів, ніж без онлайн-присутності
-          </p>
-          <p>
-            81% споживачів досліджують товар/послугу в інтернеті перед покупкою, що робить сайт важливим каналом
-            інформування
-          </p>
-        </article>
-      </section>
-      <!-- 2 --- <AboutCard /> -->
-      <section class="card">
-        <Image
-          class="card-img"
-          src={img_2_Src}
-          alt="Icon"
-          widths={[64, 80]}
-          sizes="(max-width: 768px) 64px, (min-width: 767px) 80px"
-        />
-        <h2 class="card-title title-h2">Зниження операційних витрат та автоматизація процесів</h2>
-        <article class="card-content">
-          <p>
-            Автоматизація процесу обробки замовлень через сайт знижує витрати на персонал до 30%
-          </p>
-          <p>
-            Самообслуговування клієнтів через сайт (FAQ, онлайн-підтримка) зменшує кількість звернень до служби
-            підтримки на 40-60%
-          </p>
-          <p>
-            Інтеграція CRM з сайтом підвищує ефективність продажів на 29% та скорочує цикл продажів на 8-14%
-          </p>
-        </article>
-      </section>
-      <!-- 3 --- <AboutCard /> -->
-      <section class="card">
-        <Image
-          class="card-img"
-          src={img_3_Src}
-          alt="Icon"
-          widths={[64, 80]}
-          sizes="(max-width: 768px) 64px, (min-width: 767px) 80px"
-        />
-        <h2 class="card-title title-h2">Розширення охоплення аудиторії та географії продажів</h2>
-        <article class="card-content">
-          <p>
-            3% споживачів починають пошук товарів чи послуг онлайн, незалежно від того, де вони планують здійснити
-            покупку
-          </p>
-          <p>
-            Бізнеси з веб-сайтами залучають в середньому на 70% більше клієнтів, ніж без онлайн-присутності
-          </p>
-          <p>
-            81% споживачів досліджують товар/послугу в інтернеті перед покупкою, що робить сайт важливим каналом
-            інформування
-          </p>
-        </article>
-      </section>
+      {
+        cards.map((card) => (
+          <section class="card">
+            <Image
+              class="card-img"
+              src={card.src}
+              alt="icon"
+              widths={[64, 80]}
+              sizes="(max-width: 768px) 64px, (min-width: 767px) 80px"
+            />
+            <h2 class="card-title title-h2">{card.title}</h2>
+            <article class="card-content">set:html={card.textHtml}</article>
+          </section>
+        ))
+      }
+
     </main>
   </div>
 </section>
 <section class="separator">
   <div class="triangle-bottom"></div>
   <div class="triangle-top"></div>
-  
   <div class="parallelogram1"></div>
   <div class="parallelogram2 figure637-119"></div>
   <div class="parallelogram3 parallelogram3--left"></div>
@@ -141,7 +106,7 @@ import img_3_Src from "../assets/images/about/img3.webp";
   .separator {
     position: relative;
     width: 100%;
-    height: clamp(3.438rem, 0.24rem + 11.122vw, 10.25rem);/** 1440-164 460-55*/
+    height: clamp(3.438rem, 0.24rem + 11.122vw, 10.25rem); /** 1440-164 460-55*/
     overflow: hidden;
   }
 
@@ -178,7 +143,7 @@ import img_3_Src from "../assets/images/about/img3.webp";
   .parallelogram2 {
     top: 0;
     left: 0;
-    background: linear-gradient(231.49deg, rgba(116, 108, 245, 0.4),rgba(116, 108, 245, 0) 100%);
+    background: linear-gradient(231.49deg, rgba(116, 108, 245, 0.4), rgba(116, 108, 245, 0) 100%);
     clip-path: polygon(0% 26%, 100% 0%, 98.2% 50%, 0% 76%);
   }
 

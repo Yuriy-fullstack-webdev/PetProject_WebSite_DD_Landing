@@ -1,13 +1,18 @@
 ---
 import { Image } from "astro:assets";
 import sound from "../assets/sound/nav-sound.mp3";
+import imgDesign from "../assets/images/advantages/design-img.jpg";
+import imgDev from "../assets/images/advantages/development-img.png";
+import imgContent from "../assets/images/advantages/content-img.png";
+import imgSeo from "../assets/images/advantages/seo-img.jpeg";
+import imgSupport from "../assets/images/advantages/support-img.jpeg";
 
-const imgUrl = "/src/assets/images/advantages/";
+
 const cards = [
   {
     id: "design",
     title: "Дизайн",
-    imgName: "design-img.jpg",
+    imgSrc: imgDesign,
     tagline:
       "Ми використовуємо дизайн як потужний інструмент для створення зручних естетичних та функціональних сайтів, які вирішують проблеми користувачів, покращують взаємодію з брендом і забезпечують високу конверсію.",
     headline: "Які проблеми ми вирішуємо за допомогою дизайнерських рішень:",
@@ -25,7 +30,7 @@ const cards = [
   {
     id: "development",
     title: "Розробка",
-    imgName: "development-img.png",
+    imgSrc: imgDev,
     tagline:
       "Ми створюємо сайти, які вирішують ключові проблеми бізнесу: підвищують впізнаваність бренду, залучають нових клієнтів, покращують взаємодію з аудиторією, автоматизують процеси продажів, забезпечують зручність користувачів, підвищують конверсію, розширюють ринкову присутність та забезпечують конкурентну перевагу.",
     headline:
@@ -44,7 +49,7 @@ const cards = [
   {
     id: "content",
     title: "Контент-стратегія",
-    imgName: "content-img.png",
+    imgSrc: imgContent,
     tagline:
       "Ми розробляємо продумані та ефективні контент-стратегії, які вирішують ключові завдання бізнесу: допомагають підвищити впізнаваність бренду, залучити нових клієнтів, покращити взаємодію з аудиторією, автоматизувати процеси продажів, забезпечити зручність користувачів, підвищити конверсію, розширити ринкову присутність та здобути конкурентну перевагу.",
     headline:
@@ -63,7 +68,7 @@ const cards = [
   {
     id: "seo",
     title: "SEO-оптимізація",
-    imgName: "seo-img.jpeg",
+    imgSrc: imgSeo,
     tagline:
       "Ми проводимо SEO-оптимізацію, яка вирішує ключові завдання бізнесу: підвищує видимість бренду, залучає органічний трафік, покращує позиції в пошуковій видачі, автоматизує процеси просування, забезпечує високу якість трафіку, підвищує конверсію, розширює ринкову присутність та забезпечує довгострокову конкурентну перевагу.",
     headline: "Ми використовуємо сучасні SEO-інструменти, що забезпечують ефективність, точність та інноваційність:",
@@ -81,7 +86,7 @@ const cards = [
   {
     id: "support",
     title: "Підтримка",
-    imgName: "support-img.jpeg",
+    imgSrc: imgSupport,
     tagline:
       "Ми надаємо комплексну технічну підтримку, яка вирішує ключові питання після запуску сайту: забезпечує стабільну роботу, оперативне виправлення помилок, оновлення системи, що покращує взаємодію з аудиторією, автоматизує процеси оновлень, забезпечує безперебійність роботи, підвищує безпеку, розширює функціонал та забезпечує довгострокову конкурентну перевагу.",
     headline:
@@ -159,7 +164,7 @@ const cards = [
                 <div class="card-img__img-box">
                   <Image
                     class="card-img__img-box__image"
-                    src={`${imgUrl}${card.imgName}`}
+                    src={card.imgSrc}
                     alt={card.title}
                     width={383}
                     height={383}

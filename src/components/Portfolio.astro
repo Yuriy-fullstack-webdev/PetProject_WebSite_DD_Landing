@@ -3,6 +3,14 @@ import { Image } from "astro:assets";
 import HeaderBlock from "./blocks/HeaderBlock.astro";
 import Arrow from "../components/elements/Arrow.astro";
 
+import img1 from "../assets/images/slide/georgia.png";
+import img2 from "../assets/images/slide/wanderlast-cronicles.png";
+import img3 from "../assets/images/slide/social-radar.png";
+import img4 from "../assets/images/slide/yoga-mind.png";
+import img5 from "../assets/images/slide/womazing.png";
+import img6 from "../assets/images/slide/robotechnics.png";
+
+
 const HeaderData = [
   {
     supertitle: "Наші проєкти",
@@ -14,36 +22,35 @@ const HeaderData = [
   },
 ];
 
-const imgUrl = "/src/assets/images/slide/";
 const portfolio = [
   {
     title: "Georgia",
-    imgName: "georgia.png",
+    imgSrc: img1,
     text: "Сайт, створений за допомогою сучасних веб-технологій має на меті познайомити відвідувачів з багатогранною Грузією, демонструючи її багаті традиції, неповторну кухню та мальовничу природу, щоб заохотити до її відвідування та поглибити культурне розуміння.",
   },
   {
     title: "Wanderlast cronicles",
-    imgName: "wanderlast-cronicles.png",
+    imgSrc: img2,
     text: "Сайт, розроблений із застосуванням стандартних веб-технологій має на меті надихнути та допомогти спланувати подорожі Європою, пропонуючи інформацію про різноманітні напрямки, культуру, визначні пам'ятки та практичні поради для самостійних мандрівників.",
   },
   {
     title: "Social Radar",
-    imgName: "social-radar.png",
+    imgSrc: img3,
     text: "Сайт, розроблений з використанням сучасних технологій веб-розробки є онлайн-платформою, створеною для забезпечення зручного та ефективного спілкування між користувачами з різними інтересами та цілями",
   },
   {
     title: "Yoga Mind",
-    imgName: "yoga-mind.png",
+    imgSrc: img4,
     text: "Сайт, створений за допомогою гнучких веб-технологій є інформаційною платформою, що пропонує різноманітні ресурси про йогу, включаючи її філософію, різні стилі, переваги для здоров'я та практичні поради для початківців і досвідчених практиків.",
   },
   {
     title: "WoMazing",
-    imgName: "womazing.png",
+    imgSrc: img5,
     text: "Сайт, побудований на основі платформи для електронної комерції з використанням HTML, CSS та JavaScript, є онлайн-магазином одягу, що пропонує користувачам зручний інтерфейс для перегляду каталогу товарів, вибору розмірів та кольорів, додавання до кошика та оформлення замовлень з метою продажу...",
   },
   {
     title: "robotechnics",
-    imgName: "robotechnics.png",
+    imgSrc: img6,
     text: "Сайт, розроблений із застосуванням адаптивних веб-технологій є онлайн-платформою друкарні, що надає користувачам можливість ознайомитися з переліком послуг, переглянути приклади робіт, замовити друк поліграфічної продукції та отримати консультацію.",
   },
 ];
@@ -67,7 +74,7 @@ const portfolio = [
                     <div class="embla__slide-img">
                       <Image
                         class="embla__slide-img__img"
-                        src={`${imgUrl}${portfolio.imgName}`}
+                        src={portfolio.imgSrc}
                         width={350}
                         height={500}
                         alt={`Web site ${portfolio.title}`}

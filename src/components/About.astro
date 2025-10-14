@@ -71,7 +71,7 @@ const cards = [
               sizes="(max-width: 768px) 64px, (min-width: 767px) 80px"
             />
             <h2 class="card-title title-h2">{card.title}</h2>
-            <article class="card-content">set:html={card.textHtml}</article>
+            <article class="card-content" set:html={card.textHtml}></article>
           </section>
         ))
       }

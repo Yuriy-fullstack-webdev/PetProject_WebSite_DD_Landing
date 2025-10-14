@@ -1,15 +1,29 @@
 ---
+import HeaderBlock from "./blocks/HeaderBlock.astro";
 
+const HeaderData = [
+  {
+    supertitle: "Відгуки про нашу роботу",
+    title: "Про нас Пишуть Наші Клієнти",
+    subtitle:
+      "Подивіться, як ефективні веб-сайти приносять реальні результати бізнесу наших клієнтів.",
+    color: "black", // Необязательный, с дефолтом "white" | "black";
+    position: "center", // Необязательный, с дефолтом "left" | "center";
+  },
+];
 ---
 
 <section class="reviews">
   <div class="container">
-    <h1>Відгуки про нашу роботу</h1>
+    <HeaderBlock data={HeaderData} />
     <main></main>
   </div>
 </section>
 
 <style>
   .reviews {
+    padding-top: 234px;
+    padding-top: 150px;
+    background-color: var(--bg-white);
   }
 </style>

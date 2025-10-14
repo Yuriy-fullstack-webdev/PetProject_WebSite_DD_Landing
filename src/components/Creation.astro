@@ -1,19 +1,171 @@
 ---
+import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
+import HeaderBlock from "./blocks/HeaderBlock.astro";
+import srcImg from "../assets/images/creation/creation-img.png";
 
+const HeaderData = [
+  {
+    supertitle: "Створення сайту",
+    title: "Як ми Працюємо",
+    subtitle:
+      "Ми не просто створюємо сайти, ми будуємо мости між мріями клієнтів та цифровою реальністю. Для нас кожен проект – це унікальна історія, яку ми розповідаємо за допомогою коду, дизайну та інновацій. Ми вкладаємо душу в кожен піксель, кожен рядок коду, бо віримо, що сайт – це не просто набір сторінок, а відображення суті бізнесу, його цінностей та прагнень.",
+    color: "black", // Необязательный, с дефолтом "white" | "black";
+    position: "left", // Необязательный, с дефолтом "left" | "center";
+  },
+];
+
+const ListContent = [
+  {
+    iconName: "icon-mail",
+    title: "Отримання замовлення",
+    text: "Залиште заявку на сайті, після чого ми зв'яжемося з вами для попередньої консультації по проекту"
+  },
+  {
+    iconName: "icon-data-file",
+    title: "обговорення проекту та складання ТЗ",
+    text: "Враховуємо ваші побажання по дизайну, вносимо свої пропозиції для отримання найкращого результату"
+  },
+  {
+    iconName: "icon-agreement",
+    title: "Підписання договору та початок робіт",
+    text: "Укладаємо офіційний договір та приступаємо до роботи"
+  },
+  {
+    iconName: "icon-ppt-file",
+    title: "Презентація та внесення правок",
+    text: "Демонструємо макет, отримуємо коментарі та побажання і доопрацьовуємо проект"
+  },
+  {
+    iconName: "icon-baby",
+    title: "Передача роботи та доступів",
+    text: "Передаємо всі файли, що мають відношення до проекту та доступ до адміністративної панелі"
+  }
+]
 ---
-<section class="creation">
-    <div class="container">
-      <div class="creation-wrap">
-      <h1>Створення сайту</h1>
-      <main></main>
-      </div>
 
+<section class="creation">
+  <div class="container">
+    <div class="creation-wrap">
+      <div class="creation__img-box">
+        <div class="creation__img-box__images" >
+        <Image class="creation__images" 
+        src={srcImg}
+        alt="cat"
+        width={374}
+        height={582}
+        />
+        </div>
+
+      </div>
+      <section class="creation-main">
+        <HeaderBlock data={HeaderData} />
+        <ul class="creation-list">
+          {
+            ListContent.map((item)=>(
+            <li class="creation-item">
+            <Icon class="item-icon" name={item.iconName}/>
+            <div class="item-content">
+              <p class="item-content__title">{item.title}</p>
+              <p class="item-content__text">{item.text}</p>
+            </div>
+          </li>
+            ))
+          }
+        </ul>
+      </section>
     </div>
-  </section>
+  </div>
+</section>
+<style>
   
-  <style>
-    .creation {
-      background-color: rgba(235, 239, 250, 1);
-      padding: 290px 0;
-    }
-  </style>
+  .creation {
+    background-color: rgba(235, 239, 250, 1);
+    padding: 290px 0;
+  }
+
+  .creation-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: var(--gap-base);
+  }
+  .creation__img-box {
+    max-width: 428.1px;
+    width: 100%;
+    aspect-ratio: 428/581;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    border: 1px dashed rgba(62, 60, 84, 1);
+    border-radius: 12px;
+    box-shadow: 5px 6px 17px rgba(21, 19, 32, 0.1);
+  }
+
+  .creation__img-box__images {
+    position: relative;
+    width: 87%;
+    height: 90%;
+    background-color: red;
+    border-radius: 12px;
+  }
+
+  .creation__images {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 113%;
+    height: 100%;
+    aspect-ratio: 113/100;
+    object-fit: cover;
+  }
+
+  .creation-main {
+    max-width: 629px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 44px;
+  }
+
+  .creation-list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 38px;
+}
+.creation-item {
+  display: flex;
+  column-gap: var(--gap-base);
+}
+.item-icon {
+  color: red;
+  font-size: 44px;
+}
+
+.item-content {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+.item-content__title {
+  color: rgba(37, 34, 55, 1);
+
+font-family: Lato;
+font-size: 18px;
+font-weight: 700;
+line-height: 22px;
+letter-spacing: 0px;
+text-align: left;
+}
+.item-content__text {
+  color: rgba(62, 60, 84, 1);
+
+font-family: Lato;
+font-size: 16px;
+font-weight: 400;
+line-height: 19px;
+letter-spacing: 0px;
+text-align: left;
+}
+</style>

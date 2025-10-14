@@ -111,6 +111,7 @@
     --margin-wrap: clamp(var(--margin-tablet-wrap), -45px + 5.8594vw, var(--margin-desktop-wrap));
 
     --title-margin-top: 1.5rem;
+    --title-margin-bottom: 2.25rem;
 }
 
 .container {

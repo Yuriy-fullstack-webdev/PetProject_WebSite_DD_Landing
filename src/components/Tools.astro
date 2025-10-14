@@ -1,16 +1,40 @@
 ---
+import HeaderBlock from "./blocks/HeaderBlock.astro";
 
+const HeaderData = [
+  {
+    title: "Сучасні Технології для Досягнення Результату",
+    subtitle:
+      "Сучасні технології дизайну та розробки веб-сайтів відкривають перед вами безліч можливостей, допомагаючи досягати бізнес-цілей ефективніше та швидше.",
+    color: "white", // Необязательный, с дефолтом "white" | "black";
+    position: "center", // Необязательный, с дефолтом "left" | "center";
+  },
+];
 ---
 
 <section class="tools">
+<section class="separatop1"> ------------- СЕПАРАТОР ------------ </section>  
   <div class="container">
-    <h1>Сучасні Технології для Досягнення Результату</h1>
+    <HeaderBlock data={HeaderData} />
     <main></main>
   </div>
+<section class="separatop2"> ------------- СЕПАРАТОР -------------- </section>  
 </section>
+
 
 <style>
   .tools {
-    
+    position: relative;
+    padding-top: 200px;
+    padding-bottom: 196px;
+    background-color: rgba(37, 34, 55, 1);
+  }
+  /**separatop */
+  .separatop1 {
+    position: absolute;
+  }
+
+  .separatop2 {
+    position: absolute;
   }
 </style>

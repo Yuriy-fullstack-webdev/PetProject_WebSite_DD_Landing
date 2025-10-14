@@ -51,7 +51,10 @@ const portfolio = [
 
 <section id="portfolio" class="portfolio">
   <div class="container">
-    <HeaderBlock data={HeaderData} />
+    <div class="header-wrap">
+      <HeaderBlock data={HeaderData} />
+      
+    </div>
     <main>
       <!--Каруселі -->
       <div class="embla">
@@ -81,9 +84,9 @@ const portfolio = [
           </div>
         </div>
         <button class="embla__prev">
-          <Arrow arrow="left"/>
+          <Arrow arrow="left" />
         </button>
-        <button class="embla__next"><Arrow arrow="right"/></button>
+        <button class="embla__next"><Arrow arrow="right" /></button>
       </div>
     </main>
   </div>
@@ -110,6 +113,9 @@ const portfolio = [
     padding-top: 60px;
     padding-bottom: 94px;
     background-color: var(--bg-white);
+  }
+  .header-wrap {
+
   }
   /** Стилізація каруселі */
   .embla {

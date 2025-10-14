@@ -1,15 +1,29 @@
 ---
+import HeaderBlock from "./blocks/HeaderBlock.astro";
 
+const HeaderData = [
+  {
+    supertitle: "Додаткова інформація",
+    title: "Найбільш Часті Питання (FAQ)",
+    subtitle:
+      "Якщо у вас виникли додаткові запитання, перегляньте цей розділ або зв'яжіться з нашими менеджерами безпосередньо, вони будуть раді допомогти.",
+    color: "black", // Необязательный, с дефолтом "white" | "black";
+    position: "left", // Необязательный, с дефолтом "left" | "center";
+  },
+];
 ---
 
 <section class="faq">
-    <div class="container">
-      <h1>FAQ</h1>
-      <main></main>
-    </div>
+  <div class="container">
+    <HeaderBlock data={HeaderData} />
+    <main></main>
+  </div>
   </section>
   
   <style>
     .faq {
+      padding-top: 312px;
+      padding-bottom: 232px;
+      background-color: background: var(--#ffffff, rgba(255, 255, 255, 1));;
     }
   </style>

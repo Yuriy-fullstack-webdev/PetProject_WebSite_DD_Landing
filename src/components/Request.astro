@@ -1,15 +1,29 @@
 ---
+import HeaderBlock from "./blocks/HeaderBlock.astro";
 
+const HeaderData = [
+  {
+    supertitle: "Залишайте запит",
+    title: "Хочете Допомогти Вашому Бізнесу Зростати?",
+    subtitle:
+      "Залиште свої дані та отримайте безкоштовний аналіз поточного контенту вашого сайту",
+    color: "white", // Необязательный, с дефолтом "white" | "black";
+    position: "center", // Необязательный, с дефолтом "left" | "center";
+  },
+];
 ---
 
 <section class="request">
-    <div class="container">
-      <h1>Залишайте запит</h1>
-      <main></main>
-    </div>
+  <div class="container">
+    <HeaderBlock data={HeaderData} />
+    <main></main>
+  </div>
   </section>
   
   <style>
     .request {
+      padding-top: 200px;
+      padding-bottom: 120px;
+      background-color: rgba(37, 34, 55, 1);
     }
   </style>

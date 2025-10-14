@@ -18,9 +18,12 @@
         </p>
       </section>
       <form class="form" action="">
+        <div class="form-wrap">
         <legend class="form__title">Замовити Безкоштовну Консультацію</legend>
         <input class="form__input" type="text" name="name" id="name" placeholder="Ваше ім'я" required/>
-        <input class="form__input" type="tel" name="tel" id="tel" placeholder="Ваш номер телефону" required/>
+        <input class="form__input" type="tel" name="tel" id="tel" placeholder="Ваш номер телефону" required/>          
+        </div>
+
         <button class="form__button" type="submit">Замовити</button>
       </form>
     </div>
@@ -78,6 +81,7 @@ margin-top: 36px;
     box-sizing: border-box;
 display: flex;
 flex-direction: column;
+justify-content: space-between;
 box-shadow: 
     10px 14px 20px rgba(21, 19, 32, 0.1),
     0 0 5px rgba(21, 19, 32, 0.05);
@@ -91,6 +95,12 @@ background: linear-gradient(
 padding: 57px 32px 57px 32px;
   }
 
+  .form-wrap {
+    display: flex;
+flex-direction: column;
+row-gap: 24px;
+  }
+
   .form__title {
     color: rgba(239, 239, 239, 1);
 
@@ -100,6 +110,7 @@ font-weight: 700;
 line-height: 29px;
 letter-spacing: 0px;
 text-align: left;
+margin-bottom: 8px;
   }
   .form__input {
     padding: 10px 16px 10px 16px;

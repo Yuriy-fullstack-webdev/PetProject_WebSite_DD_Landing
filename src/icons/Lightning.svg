@@ -1,0 +1,11 @@
+<svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="44.000000" height="44.000000" fill="none">
+	<defs>
+		<linearGradient id="paint_linear_8" x1="22.4580059" x2="22.4580059" y1="3.66699219" y2="40.3336563" gradientUnits="userSpaceOnUse">
+			<stop stop-color="rgb(230,168,35)" offset="0" stop-opacity="1" />
+			<stop stop-color="rgb(191,82,232)" offset="1" stop-opacity="1" />
+		</linearGradient>
+	</defs>
+	<rect id="Lightning" width="44.000000" height="44.000000" x="0.000000" y="0.000000" />
+	<path id="path" d="M17.4163 3.66699L33.9163 3.66699L23.833 16.5003L37.583 16.5003L15.583 40.3337L20.1663 22.917L7.33301 22.917L17.4163 3.66699Z" fill="rgb(0,0,0)" fill-opacity="0" fill-rule="nonzero" />
+	<path id="path" d="M33.9163 3.66699L23.833 16.5003L37.583 16.5003L15.583 40.3337L20.1663 22.917L7.33301 22.917L17.4163 3.66699L33.9163 3.66699Z" fill-rule="nonzero" stroke="url(#paint_linear_8)" stroke-linejoin="round" stroke-width="1.5" />
+</svg>

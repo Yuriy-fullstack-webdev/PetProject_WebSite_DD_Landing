@@ -1,0 +1,75 @@
+        <ul class="price-list">
+          {
+            Array.isArray(price)
+              ? price.map((items) =>
+                  Array.isArray(items.desc)
+                    ? items.desc.map((item) => (
+                        <li class="price-list__item">
+                          <h4 class:list={["price-list__item-title", `${items.id}--color`]}>{item.title}</h4>
+                          <div class="price-list__item-content">
+                            <div class:list={["item-content", `${items.id}-content`]}>
+                              <p class="item-content__desc">{item.text}</p>
+                            </div>
+                            <ul class="item-content__tariff">
+                              <li class="item-content__tariff-item">
+                                <p class="tariff-item__price">
+                                  <span>від&nbsp;</span>
+                                  <strong>{item.price}</strong>
+                                  <span>&nbsp;грн</span>
+                                </p>
+                              </li>
+                            </ul>
+                          </div>
+                        </li>
+                      ))
+                    : null
+                )
+              : null
+          }
+        </ul>
+        <ul class="price-list">
+          {
+            Array.isArray(price)
+              ? price.map((items) =>
+                  Array.isArray(items.desc)
+                    ? items.desc.map((item) => (
+                        <li class="price-list__item">
+                          <h4 class:list={["price-list__item-title", `${items.id}--color`]}>{item.title}</h4>
+                          <div class="price-list__item-content">
+                            <div class:list={["item-content", `${items.id}-content`]}>
+                              <p class="item-content__desc">{item.text}</p>
+                              {items.id === "dev" ? (
+                                <ul class="item-content__list">
+                                  <li>{item.info[0]}</li>
+                                  <li>{item.info[1]}</li>
+                                </ul>
+                              ) : null}
+                            </div>
+                            <ul class="item-content__tariff">
+                              {items.id === "dev" ? (
+                                <li class="item-content__tariff-item">
+                                  <p class="tariff-item__dev">{item.stack[0]}</p>
+                                  <p class="tariff-item__price">
+                                    <span>від&nbsp;</span>
+                                    <strong>{item.price[0]}</strong>
+                                    <span>&nbsp;грн</span>
+                                  </p>
+                                </li>
+                              ) : null}
+                              <li class="item-content__tariff-item">
+                                {items.id === "dev" ? <p class="tariff-item__dev">{item.stack[1]}</p> : null}
+                                <p class="tariff-item__price">
+                                    <span>від&nbsp;</span>
+                                    <strong>{item.price[1]}</strong>
+                                    <span>&nbsp;грн</span>
+                                </p>
+                              </li>
+                            </ul>
+                          </div>
+                        </li>
+                      ))
+                    : null
+                )
+              : null
+          }
+        </ul>

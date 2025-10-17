@@ -25,40 +25,56 @@ const HeaderData = [
             <summary class="accordion-item__question">
               Яка вартість розробки веб-сайту та від чого вона залежить?
             </summary>
-            <p class="accordion-item__answer">Вартість розробки веб-сайту перебуває у широкому діапазоні — від кількох тисяч гривень до десятків і навіть сотень тисяч. Це як запитати, скільки коштує автомобіль: ціна залежить від його класу, "начинки" та бренду.</p>
+            <p class="accordion-item__answer">
+              Вартість розробки веб-сайту перебуває у широкому діапазоні — від кількох тисяч гривень до десятків і
+              навіть сотень тисяч. Це як запитати, скільки коштує автомобіль: ціна залежить від його класу, "начинки" та
+              бренду.
+            </p>
           </details>
           <details class="accordion-item" name="faq">
             <summary class="accordion-item__question">
               Яка вартість розробки веб-сайту та від чого вона залежить?
             </summary>
-            <p class="accordion-item__answer">Вартість розробки веб-сайту перебуває у широкому діапазоні — від кількох тисяч гривень до десятків і навіть сотень тисяч. Це як запитати, скільки коштує автомобіль: ціна залежить від його класу, "начинки" та бренду.</p>
+            <p class="accordion-item__answer">
+              Вартість розробки веб-сайту перебуває у широкому діапазоні — від кількох тисяч гривень до десятків і
+              навіть сотень тисяч. Це як запитати, скільки коштує автомобіль: ціна залежить від його класу, "начинки" та
+              бренду.
+            </p>
           </details>
           <details class="accordion-item" name="faq">
             <summary class="accordion-item__question">
               Скільки часу в середньому займає процес створення сайту?
             </summary>
-            <p class="accordion-item__answer">Процес створення веб-сайту — це багатоетапний цикл, і його тривалість залежить від складності проєкту, обсягу роботи та швидкості ухвалення рішень з боку замовника. У середньому, терміни можуть варіюватися від двох тижнів до шести місяців і більше.</p>
+            <p class="accordion-item__answer">
+              Процес створення веб-сайту — це багатоетапний цикл, і його тривалість залежить від складності проєкту,
+              обсягу роботи та швидкості ухвалення рішень з боку замовника. У середньому, терміни можуть варіюватися від
+              двох тижнів до шести місяців і більше.
+            </p>
           </details>
           <details class="accordion-item" name="faq">
             <summary class="accordion-item__question">
               Чи буде мій сайт коректно відображатися на мобільних пристроях та планшетах?
             </summary>
-            <p class="accordion-item__answer">Так, буде. У 2024 році адаптивність (або Responsive Web Design) є обов'язковим стандартом у веб-розробці.</p>
+            <p class="accordion-item__answer">
+              Так, буде. У 2024 році адаптивність (або Responsive Web Design) є обов'язковим стандартом у веб-розробці.
+            </p>
           </details>
           <details class="accordion-item" name="faq">
             <summary class="accordion-item__question">
               Що відбувається після запуску сайту? Чи надаєте ви послуги технічної підтримки, оновлення чи просування?
             </summary>
-            <p class="accordion-item__answer">Звісно. Фінальний етап — це тільки початок життя сайту. Важливо розуміти, що відбувається після того, як проєкт переходить у фазу експлуатації. Для стабільної та успішної роботи сайту після його запуску необхідна постійна підтримка та планування розвитку.
+            <p class="accordion-item__answer">
+              Звісно. Фінальний етап — це тільки початок життя сайту. Важливо розуміти, що відбувається після того, як
+              проєкт переходить у фазу експлуатації. Для стабільної та успішної роботи сайту після його запуску
+              необхідна постійна підтримка та планування розвитку.
             </p>
           </details>
         </div>
       </section>
       <div class="faq-img">
         <div class="faq-img__box">
-<Image class="faq-img__box__image" src={imgSrc} alt="Cat" width={} height={}/>
+          <Image class="faq-img__box__image" src={imgSrc} alt="cat" width={} height={} />
         </div>
-
       </div>
     </div>
   </div>
@@ -72,24 +88,24 @@ const HeaderData = [
   }
 
   .faq-wrap {
-display: flex;
-justify-content: space-between;
-align-items: center;
-column-gap: var(--gap-base);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: var(--gap-base);
   }
 
   .faq-img {
     display: flex;
     justify-content: center;
     align-items: center;
-max-width: 384px;
-width: 100%;
-aspect-ratio: 384 / 522;
+    max-width: 384px;
+    width: 100%;
+    aspect-ratio: 384 / 522;
 
-box-sizing: border-box;
-border: 1px dashed rgba(62, 60, 84, 1);
-border-radius: 12px;
-box-shadow: 5px 6px 17px rgba(21, 19, 32, 0.1);
+    box-sizing: border-box;
+    border: 1px dashed rgba(62, 60, 84, 1);
+    border-radius: 12px;
+    box-shadow: 5px 6px 17px rgba(21, 19, 32, 0.1);
   }
 
   .faq-img__box {
@@ -113,39 +129,35 @@ box-shadow: 5px 6px 17px rgba(21, 19, 32, 0.1);
   .accordion {
     margin-top: 24px;
   }
- .accordion-item{
-  max-width: 480px;
-  margin-bottom: 16px;
-box-sizing: border-box;
-border-bottom: 1px dashed rgba(62, 60, 84, 1);
- }
+  .accordion-item {
+    max-width: 480px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border-bottom: 1px dashed rgba(62, 60, 84, 1);
+  }
   .accordion-item__question {
-    
     color: rgba(62, 60, 84, 1);
 
-font-family: Lato;
-font-size: 16px;
-font-weight: 400;
-line-height: 19px;
-letter-spacing: 0px;
-text-align: left;
+    font-family: Lato;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0px;
+    text-align: left;
 
-padding: 10px;
-
+    padding: 10px;
   }
 
   .accordion-item__answer {
     color: red;
 
-font-family: Lato;
-font-size: 16px;
-font-weight: 400;
-line-height: 19px;
-letter-spacing: 0px;
-text-align: left;
+    font-family: Lato;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0px;
+    text-align: left;
 
-padding: 10px;
+    padding: 10px;
   }
-
-
 </style>

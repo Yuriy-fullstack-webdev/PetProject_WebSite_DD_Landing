@@ -1,5 +1,14 @@
 ---
+import { Image } from "astro:assets";
 import HeaderBlock from "./blocks/HeaderBlock.astro";
+import iconUx from "../icons/icon-click.svg";
+import iconRespons from "../icons/icon-baby.svg";
+import iconProd from "../icons/icon-baby.svg";
+import iconSys from "../icons/icon-puzzle.svg";
+import iconAnalytics from "../icons/icon-glasses.svg";
+import iconPerson from "../icons/icon-brush.svg";
+import iconAI from "../icons/icon-cube.svg";
+
 
 const HeaderData = [
   {
@@ -10,17 +19,104 @@ const HeaderData = [
     position: "center", // Необязательный, с дефолтом "left" | "center";
   },
 ];
+
+const marqueeLine = [1, 2];
+
+const description = [
+  {
+    title: "Покращений користувацький досвід (UX):",
+    srcIcon: iconUx,
+    text: "Завдяки сучасним інструментам та методологіям, ми можемо створювати інтуїтивно зрозумілі та зручні веб-сайти, які забезпечують позитивний досвід для користувачів. Це призводить до збільшення залученості, конверсії та лояльності клієнтів.",
+  },
+  {
+    title: "Адаптивний дизайн:",
+    srcIcon: iconRespons,
+    text: "Ми розробляємо веб-сайти, які чудово виглядають та працюють на будь-яких пристроях, від настільних комп'ютерів до мобільних телефонів. Це дозволяє замовникам охопити ширшу аудиторію та забезпечити безперебійний доступ до їхнього контенту. ",
+  },
+  {
+    title: "Висока продуктивність та швидкість:",
+    srcIcon: iconProd,
+    text: "Використання сучасних фреймворків та оптимізація коду дозволяють нам створювати веб-сайти, які швидко завантажуються та ефективно працюють. Це покращує SEO-показники та забезпечує кращий користувацький досвід.",
+  },
+  {
+    title: "Інтеграція з іншими системами:",
+    srcIcon: iconSys,
+    text: "Ми можемо інтегрувати веб-сайти з CRM, ERP та іншими бізнес-системами, що дозволяє автоматизувати робочі процеси та покращити ефективність бізнесу.",
+  },
+  {
+    title: "Аналітика та відстеження:",
+    srcIcon: iconAnalytics,
+    text: "Використання сучасних інструментів аналітики дозволяє нашим замовникам відстежувати поведінку користувачів на веб-сайті та отримувати цінні дані для прийняття обґрунтованих бізнес-рішень.",
+  },
+  {
+    title: "Персоналізація:",
+    srcIcon: iconPerson,
+    text: "Сучасні технології дозволяють зробити сайт більш персоналізованим, що дає змогу краще взаємодіяти з відвідувачами сайту, та показувати їм той контент, який цікавий саме їм.",
+  },
+  {
+    title: "Штучний інтелект (AI):",
+    srcIcon: iconAI,
+    text: "Використовуючи AI, можливо автоматизувати багато процесів на сайті, та зробити його більш інтуїтивно зрозумілим.",
+  },
+];
 ---
 
 <section class="tools">
-<section class="separatop1"> ------------- СЕПАРАТОР ------------ </section>  
+  <section class="separatop1">------------- СЕПАРАТОР ------------</section>
   <div class="container">
     <HeaderBlock data={HeaderData} />
-    <main></main>
-  </div>
-<section class="separatop2"> ------------- СЕПАРАТОР -------------- </section>  
-</section>
+    <main>
+      <section class="technologies">
+        <div class="technologies-dev">
+          {
+            marqueeLine.map((item) => (
+              <p class="technologies-item item-marquee" aria-hidden={item === 2 ? "true" : undefined}>
+                <span class="item item-color item-color1">AstroJS</span>
+                <span class="item item-color item-color2">SvelteJS</span>
+                <span class="item item-color3">HTML</span>
+                <span class="item item-color4">CSS</span>
+                <span class="item item-color5">SCSS</span>
+                <span class="item item-color item-color6">JavaScript</span>
+                <span class="item item-color item-color7 text-nowrap">
+                  Wordpress (Bricks Builder, Builderius Builder)
+                </span>
+              </p>
+            ))
+          }
+        </div>
+        <div class="technologies-design">
+          {
+            marqueeLine.map((item) => (
+              <p class="technologies-item item-marquee item-reverce" aria-hidden={item === 2 ? "true" : undefined}>
+                <span class="item item-color3">Figma</span>
+                <span class="item item-color5 text-nowrap">Adobe XD</span>
+                <span class="item item-color item-color8 text-nowrap">Adobe Photoshop</span>
+                <span class="item item-color item-color9 text-nowrap">Adobe Illustrator</span>
+                <span class="item item-color item-color2 text-nowrap">UI/UX дизайн</span>
+                <span class="item item-color item-color7 text-nowrap">Адаптивний дизайн</span>
+              </p>
+            ))
+          }
+        </div>
+      </section>
 
+      <ul class="technologies-description">
+        {
+          description.map((desc) => (
+            <li class="description">
+              <div class="description-header">
+                <Image class="description-img" src={desc.srcIcon} width={44} height={44} alt="icon"/>
+                <p class="description__title">{desc.title}</p>
+              </div>
+              <p class="description__text">{desc.text}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </main>
+  </div>
+  <section class="separatop2">------------- СЕПАРАТОР --------------</section>
+</section>
 
 <style>
   .tools {
@@ -29,6 +125,193 @@ const HeaderData = [
     padding-bottom: 196px;
     background-color: rgba(37, 34, 55, 1);
   }
+
+  .technologies {
+    --gap-colums: 39px;
+    --tech-padding: 24px;
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--tech-padding);
+    padding: var(--tech-padding) 0;
+    margin-top: 20px;
+    margin-bottom: 60px;
+    border-block: 1px dashed rgba(239, 239, 239, 0.25);
+
+    overflow: hidden;
+    user-select: none;
+  }
+  .technologies-dev,
+  .technologies-design {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    column-gap: var(--gap-colums);
+  }
+  .technologies:before,
+  .technologies:after {
+    content: "";
+    height: 100%;
+    top: 0;
+    width: 5%;
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+  }
+  .technologies:before {
+    left: 0;
+    background: linear-gradient(90deg, rgba(37, 34, 55, 1) 0%, rgba(37, 34, 55, 0) 100%);
+  }
+  .technologies:after {
+    right: 0;
+    background: linear-gradient(90deg, rgba(37, 34, 55, 0) 0%, rgba(37, 34, 55, 1) 100%);
+  }
+
+  .technologies-item {
+    flex-shrink: 0;
+    justify-content: space-around;
+
+    display: flex;
+    align-items: center;
+    column-gap: var(--gap-colums);
+    min-width: 100%;
+
+    font-family: Lato;
+    font-style: normal;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 29px;
+    letter-spacing: 0px;
+    text-align: left;
+  }
+
+  .item {
+    transition: all 0.1s ease-in-out;
+  }
+
+  .item-marquee {
+    animation: scroll 20s linear infinite;
+  }
+
+  .item-reverce {
+    animation-direction: reverse;
+  }
+
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - var(--gap-colums)));
+    }
+  }
+
+  .item-color1 {
+    background: linear-gradient(225deg, rgba(235, 239, 250, 1), rgba(46, 197, 182, 1) 100%);
+  }
+
+  .item-color2 {
+    background: linear-gradient(225deg, rgba(35, 158, 232, 1), rgba(118, 108, 245, 1) 100%);
+  }
+
+  .item-color3 {
+    color: rgba(230, 168, 35, 1);
+  }
+
+  .item-color4 {
+    color: rgba(191, 82, 232, 1);
+  }
+
+  .item-color5 {
+    color: rgba(118, 108, 245, 1);
+  }
+
+  .item-color6 {
+    background: linear-gradient(213.17deg, rgba(46, 197, 182, 1), rgba(191, 82, 232, 1) 100%);
+  }
+
+  .item-color7 {
+    background: linear-gradient(221.99deg, rgba(164, 54, 164, 1), rgba(230, 168, 35, 1) 100%);
+  }
+
+  .item-color8 {
+    background: linear-gradient(225deg, rgba(46, 197, 182, 1), rgba(230, 168, 35, 1) 100%);
+  }
+
+  .item-color9 {
+    background: linear-gradient(225deg, rgba(191, 82, 232, 1), rgba(35, 158, 232, 1) 100%);
+  }
+
+  .item-color {
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  /** description */
+  .technologies-description {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: auto;
+    column-gap: var(--gap-base);
+    row-gap: 36px;
+    align-items: center;
+  }
+
+  .description {
+    display: flex;
+    flex-direction: column;
+    row-gap: calc(var(--gap-base) / 2);
+  }
+
+  .description-header {
+    display: flex;
+    column-gap: calc(var(--gap-base) / 2);
+  }
+
+  .description-img {
+    width: 44px;
+    height: 44px;
+    aspect-ratio: 1;
+  }
+
+  .description__title {
+    color: rgba(255, 255, 255, 1);
+
+    font-family: Lato;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 29px;
+    letter-spacing: 0px;
+    text-align: left;
+  }
+
+  .description__text {
+    color: rgba(209, 206, 255, 1);
+
+    font-family: Lato;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0px;
+    text-align: left;
+    margin-left: calc(44px + var(--gap-base) / 2);
+  }
+
+  .technologies-description li:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    row-gap: 24px;
+  }
+
+  .technologies-description li:last-child:nth-child(odd) .description-header {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .technologies-description li:last-child:nth-child(odd) .description__text {
+    margin-left: 0;
+    text-align: center;
+  }
+
   /**separatop */
   .separatop1 {
     position: absolute;

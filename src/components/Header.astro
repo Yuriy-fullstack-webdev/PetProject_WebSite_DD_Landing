@@ -1,16 +1,183 @@
 ---
+import { Icon } from "astro-icon/components";
 import LogoDD from "./elements/LogoDD.astro";
 import Nav from "./elements/Nav.astro";
 import NavSocialMedia from "./elements/NavSocialMedia.astro";
-
-
 ---
-<header>
-    <LogoDD/>
-    <Nav/>
-    <NavSocialMedia/>
+
+<header class="header">
+  <div class="container">
+    <div class="header-wrap">
+      <LogoDD />
+      <Nav breakpoint="desktop" />
+      <NavSocialMedia />
+      <button class="button">
+        <Icon name="icon-hamburger-open" class="icon icon-hamburger--activ" />
+        <Icon name="icon-hamburger-close" class="icon" />
+      </button>
+      <!-- <div class="menu-mob menu-mob--activ"> -->
+      <div class="menu-mob">
+        <Nav breakpoint="mob"/>
+        <NavSocialMedia breakpoint="mob"/>
+      </div>
+    </div>
+  </div>
 </header>
+<script>
+/* меню активация */
 
+const button = document.querySelector<HTMLButtonElement>('.button');
+const menu = document.querySelector<HTMLDivElement>('.menu-mob');
+
+const icons: NodeListOf<HTMLElement> | null = button ? button.querySelectorAll('.icon') : null;
+
+let openIcon: HTMLElement | null = null;
+let closeIcon: HTMLElement | null = null;
+
+if (icons && icons.length >= 2) {
+    // Проходим по найденным иконкам, чтобы определить, какая из них какая
+    icons.forEach(icon => {
+        if (icon.classList.contains('icon-hamburger--activ')) {
+            openIcon = icon; 
+        } else {
+            closeIcon = icon;
+        }
+    });
+}
+
+// --------------------------------------------------------------------------------
+// 3. Главная проверка на наличие всех элементов перед инициализацией логики
+// --------------------------------------------------------------------------------
+if (button && menu && openIcon && closeIcon) {
+    
+    // Функция, которая переключает состояние меню и иконок
+    const toggleMenu = (): void => {
+        menu!.classList.toggle('menu-mob--activ');
+        openIcon!.classList.toggle('icon-hamburger--activ');
+        closeIcon!.classList.toggle('icon-hamburger--activ');
+    };
+
+    // 4. Обработчик события для кнопки
+    // Используем bind(this) или стрелочную функцию, чтобы сохранить контекст, 
+    // хотя в данном случае это не критично.
+    button.addEventListener('click', toggleMenu);
+
+    // 5. Обработчик события для закрытия меню при клике вне его
+    const closeMenuOnOutsideClick = (event: MouseEvent): void => {
+        const target = event.target as HTMLElement;
+
+        if (
+            menu.classList.contains('menu-mob--activ') &&
+            !menu.contains(target) && // Проверяем, что клик не внутри меню
+            !button.contains(target) // Проверяем, что клик не на кнопке
+        ) {
+            toggleMenu();
+        }
+    };
+    
+    document.addEventListener('click', closeMenuOnOutsideClick);
+
+} else {
+    // Вывод ошибки в консоль, если какой-то элемент не был найден
+    console.error("TS Error: Failed to initialize hamburger menu. One or more required elements (button, menu, or two icons) were not found.");
+}
+
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const header = document.querySelector(".header");
+    if (!header) {
+      console.error("Элемент с классом .header не найден. Скрипт остановлен.");
+      return;
+    }
+    const rootStyles = getComputedStyle(document.documentElement);
+    const headerHeightValue = rootStyles.getPropertyValue("--header-height").trim();
+    const scrollThreshold = parseFloat(headerHeightValue) || 118; // 118 как запасной вариант
+
+    function handleScroll() {
+      if (window.scrollY >= scrollThreshold) {
+        header!.classList.add("scrolled-bg");
+      } else {
+        header!.classList.remove("scrolled-bg");
+      }
+    }
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+  });
+</script>
 <style>
+  .header {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    width: 100%;
 
+    background-color: var(--bg-primary);
+    transition: all 1s;
+    border-bottom: 1px dashed rgba(239, 239, 239, 0.25);
+  }
+
+  .header-wrap {
+    /* position: relative; */
+    width: 100%;
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+  }
+
+  .scrolled-bg {
+    background-color: rgba(37, 34, 55, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .button {
+    display: none;
+    border: transparent;
+    background-color: transparent;
+  }
+
+  .menu-mob {
+    display: none;
+  }
+
+  @media (max-width: 992px) {
+    .button {
+      display: block;
+      width: 44px;
+      height: auto;
+      aspect-ratio: 1;
+    }
+
+    .icon {
+      display: none;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
+    .icon-hamburger--activ {
+      display: block;
+    }
+
+    .menu-mob {
+    position: absolute;
+    z-index: 1;
+    display: none;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    border-top: 1px dashed rgba(239, 239, 239, 0.25);
+background-color: var(--bg-primary);      
+  }
+
+    .menu-mob--activ {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 45px;
+    }
+  }
 </style>

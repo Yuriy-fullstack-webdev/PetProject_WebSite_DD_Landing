@@ -1,0 +1,21 @@
+---
+
+---
+
+<span class:list={["ball", `ball--${size}`]}></span>
+<style>
+  .ball::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    background-image: url("../assets/images/ball.png");
+    background-size: 100% 100%; /* Растягивает изображение по всей площади псевдоэлемента */
+    background-repeat: no-repeat;
+  }
+  .ball--small::before {
+    width: 14px;
+    height: 14px;
+    aspect-ratio: 1;
+  }
+</style>

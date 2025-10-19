@@ -1,0 +1,15 @@
+---
+import Image from "astro/components/Image.astro"
+import logo from "/public/logo.svg"
+---
+
+<Image class="logo" src={logo} alt="Logo DD" width={140} height={70}/>
+
+<style>
+    .logo {
+        width: 140px;
+        height: 100%;
+        aspect-ratio: 140 \ 70;
+    }
+
+</style>

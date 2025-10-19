@@ -46,14 +46,18 @@
     --bg-white: #ffffff;
 
     --bg-shape1: #2c2b3d; /* rgba(44, 43, 61, 1)*/
-    --bg-shape2: #766CF5;
+    --bg-shape2: #766CF5; /* rgba(118, 108, 245, 1)*/
     --bg-shape3:  #f7f9ff; /*rgba(247, 249, 255, 1);*/
 
     --bg-opacity1: #d1ceff0d; /* rgba(209, 206, 255, 0.05)*/
     
-
+    --bg-btn-hover: #5C50F5;
+    --bg-btn-disabled: rgba(118, 108, 245, 0.45);
     /* text color*/
     --text-primary: #252237;
+    --text-secondary: #ffffff;
+
+    --text-gray-100: #fefefe; /* rgba(254, 254, 254, 1)*/
     --text-gray-200: #efefef; /* rgba(239, 239, 239, 1)*/
     --text-gray-300: #d1ceff; /* rgba(209, 206, 255, 1);*/
 
@@ -65,6 +69,7 @@
 
     /**hover*/
     --hover-primary-opacity: rgba(37, 34, 55, 0.5);
+    --hover-secondary: #ffffff;
     --hover-accent5: #766CF5; /* rgba(118, 108, 245, 1)*/
 
     /*Font*/
@@ -76,6 +81,7 @@
     --font-size-36-24: clamp(1.5rem, 0.852rem + 2.256vw, 2.25rem);
     --font-size-20-16: clamp(1rem, 0.784rem + 0.752vw, 1.25rem);
     --font-size-18-16: clamp(1rem, 0.892rem + 0.376vw, 1.125rem);
+    --font-size-18-14: clamp(0.875rem, 0.659rem + 0.752vw, 1.125rem);
     --font-size-16-14: clamp(0.875rem, 0.767rem + 0.376vw, 1rem);
 
     --line-height-s: 1.1875; /* 19\16 */
@@ -92,9 +98,9 @@
 
     /*Сontainer*/
     --width-container: 1280px;
-
-
     --size-desktop: 1280px;
+    --header-height: 118px;
+
     /*992px*/
     --size-tablet: 767px;
     --size-mob-m: 460px;
@@ -106,10 +112,6 @@
     
     --padding-container: clamp(var(--padding-mob), -2.882rem + 8.681vw, var(--padding-desktop));
 
-    --margin-desktop-wrap: 30px;
-    --margin-tablet-wrap: 0px;
-    --margin-wrap: clamp(var(--margin-tablet-wrap), -45px + 5.8594vw, var(--margin-desktop-wrap));
-
     --title-margin-top: 1.5rem;
     --title-margin-bottom: 2.25rem;
 }
@@ -120,6 +122,8 @@
     width: 100%;
     padding: 0 var(--padding-container);
 }
+
+
 
 .title-h2 {
     font-weight: 700;
@@ -144,13 +148,21 @@
     z-index: 1;
 }
 
-.bg-primary {
-    background-color: var(--color-primary);
+.btn {
+    padding: 16px 20px;
+
+    color: var(--text-gray-200);
+
+    font-family: Lato;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 22px;
+    letter-spacing: 0px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.7s;
 }
 
-.margin-wrap {
-    margin-inline: var(--margin-wrap);
-}
 
 
 /** figure*/
@@ -164,8 +176,15 @@
 
 
 
+
 @media (max-width: 992px) {}
 
 @media (max-width: 767px) {}
+
+@media (max-width: 567px) {
+    .btn[data-menu="mob"] {
+        width: 100%;
+      }
+  }
 
 @media (max-width: 460px) {}    

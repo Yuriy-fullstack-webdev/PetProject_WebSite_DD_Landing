@@ -1,48 +1,74 @@
 ---
 import { Icon } from "astro-icon/components";
 
-const IconLinks = [
-  { name: "icon-instagram", href: "#" },
-  { name: "icon-telegram", href: "#" },
-  { name: "icon-telephone", href: "#" },
+const { breakpoint } = Astro.props;
+{
+  /* desktop | mob */
+}
+
+const iconLinks = [
+  { name: "icon-instagram", href: "https://www.instagram.com/neuro_merejka/" },
+  { name: "icon-telegram", href: "https://t.me/DesignDevelopmentUA" },
+  { name: "icon-telephone", href: "tel:+380506005222" },
 ];
 ---
 
-<nav class="nav-social">
-  <ul class="nav-items">
-<li class="nav-item">
-    <a class="nav-item__link" href=""><Icon name="icon-instagram" class="icon"/></a>
-</li>
-<li>
-    <a href=""><Icon name="icon-telegram" class="icon"/></a>
-</li>
-<li>
-    <a href=""><Icon name="icon-telephone" class="icon"/></a>
-</li>
+<nav class="nav-social" data-menu={breakpoint}>
+  <ul class="nav-items" data-menu={breakpoint}>
+    {
+      iconLinks.map((item) => (
+        <li class="nav-item">
+          <a class="nav-item__link" href={item.href}>
+            <Icon name={item.name} class="icon" />
+          </a>
+        </li>
+      ))
+    }
   </ul>
 </nav>
 
 <style>
-    .nav-items {
-        display: flex;
-        align-items: center;
+  .nav-items {
+    display: flex;
+    align-items: center;
+    column-gap: 24px;
+  }
 
-    }
+  .nav-item__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-    .nav-item {
-        display: block;
-        font-size: 1.5rem;
-        line-height: 1;
-    padding: 8px;    
-    }
-
-    .nav-item__link{
-        display: inherit;
-font-size: inherit;
-line-height: inherit;
-    }
-
-.icon {
+  .icon {
+    font-size: 1.5rem;
     color: var(--color-accent5);
-}
+    transition: all 0.7s;
+  }
+
+  .icon:hover {
+    color: var(--hover-secondary);
+  }
+
+  @media (max-width: 992px) {
+    .nav-social {
+      display: none;
+    }
+
+    .nav-social[data-menu="mob"] {
+      display: flex;
+      /* display: none; */
+      justify-content: center;
+      width: 100%;
+      border-top: 1px dashed rgba(239, 239, 239, 0.25);
+    }
+
+    .nav-items[data-menu="mob"] {
+      margin-top: var(--gap-base);
+    }
+
+    .icon {
+      font-size: 2.5rem;
+    }
+  }
 </style>

@@ -1,4 +1,9 @@
 ---
+const { breakpoint } = Astro.props;
+{
+  /* desktop | mob */
+}
+
 const NavLinks = [
   { title: "Про нас", href: "about" },
   { title: "Портфоліо", href: "portfolio" },
@@ -7,11 +12,11 @@ const NavLinks = [
 ];
 ---
 
-<nav class="menu">
-  <ul class="menu-list">
+<nav class="menu" data-menu={breakpoint}>
+  <ul class="menu-list" data-menu={breakpoint}>
     {
-      NavLinks.map((item) => (
-        <li class="menu-item">
+      NavLinks.map((item, index) => (
+        <li class={`menu-item ${index === 0 ? "menu-item--activ" : ""}`} data-menu={breakpoint}>
           <a class="menu-item__link" href={`#${item.href}`} title={item.title}>
             {item.title}
           </a>
@@ -20,3 +25,92 @@ const NavLinks = [
     }
   </ul>
 </nav>
+<script>
+  const menuItems = document.querySelectorAll(".menu-item");
+
+  function removeActiveClass() {
+    menuItems.forEach((item) => {
+      item.classList.remove("menu-item--activ");
+    });
+  }
+
+  menuItems.forEach((clickedItem) => {
+    clickedItem.addEventListener("click", function () {
+      removeActiveClass();
+      this.classList.add("menu-item--activ");
+    });
+  });
+</script>
+
+<style>
+  .menu {
+    display: flex;
+    align-items: center;
+  }
+  .menu-list {
+    display: flex;
+    align-items: center;
+    column-gap: 34px;
+  }
+
+  .menu-list[data-menu="mob"] {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .menu-item {
+    color: var(--text-secondary);
+  }
+
+  .menu-item--activ {
+    color: var(--text-accent5);
+    transition: all 0.7s;
+  }
+
+  .menu-item__link {
+    position: relative;
+    color: inherit;
+    font-family: Lato;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 29px;
+    letter-spacing: 0px;
+    text-align: left;
+    transition: all 0.7s;
+  }
+
+  .menu-item--activ .menu-item__link::before {
+    position: absolute;
+    content: "";
+    bottom: -10px;
+    width: 100%;
+    height: 2px;
+    background-color: var(--bg-shape2);
+  }
+
+  .menu-item:hover .menu-item__link {
+    color: var(--hover-accent5);
+  }
+  @media (max-width: 992px) {
+    .menu {
+      display: none;
+    }
+
+    .menu[data-menu="mob"] {
+      display: block;    
+      /* display: none; */
+      margin-bottom: 44px;
+    }
+
+    .menu-list[data-menu="mob"] {
+      display: flex;
+      flex-direction: column;
+      row-gap: 6px;
+    }
+
+    .menu-item[data-menu="mob"] {
+      padding: 16px;
+      width: max-content;
+    }
+  }
+</style>

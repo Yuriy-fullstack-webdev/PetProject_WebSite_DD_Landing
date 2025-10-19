@@ -1,0 +1,29 @@
+---
+const {color, breakpoint} = Astro.props;
+---
+
+<button class:list={["btn", `button-color--${color}`]} type="button" data-menu={breakpoint}>Замовити&nbsp;сайт</button>
+
+<style>
+  
+  .button-color--purple {
+    background-color: var(--bg-shape2);
+    border: transparent;
+
+  }
+
+  .button-color--purple:hover {
+    background-color: var(--bg-btn-hover);
+  }
+
+  .button-color--purple:disabled {
+    background-color: var(--bg-btn-disabled);
+  }
+
+  .button-color--white {
+    background-color: transparent;
+  }
+
+
+
+</style>

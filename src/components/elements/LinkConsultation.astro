@@ -1,0 +1,28 @@
+---
+const {breakpoint} = Astro.props;
+---
+
+<a class="btn btn__link text-nowrap" href="#order" data-menu={breakpoint}>Безкоштовна консультація</a>
+
+
+<style>
+  .btn__link {
+    color: rgba(239, 239, 239, 1);
+
+font-family: Lato;
+font-size: 18px;
+font-weight: 500;
+line-height: 22px;
+letter-spacing: 0px;
+text-align: center;
+
+
+    box-sizing: border-box;
+    border: 1px solid rgba(239, 239, 239, 1);
+  }
+
+  .btn__link:hover {
+    color: rgba(118, 108, 245, 1);
+    border-color:rgba(118, 108, 245, 1);
+  }
+</style>

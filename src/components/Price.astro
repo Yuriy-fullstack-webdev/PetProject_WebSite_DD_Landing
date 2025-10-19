@@ -86,14 +86,14 @@ const designSection = price.find((item) => item.id === "design");
 const devSection = price.find((item) => item.id === "dev");
 ---
 
-<section id="price" class="price" role="region" aria-label="Ціни та тарифи на послуги">
+<section id="price" class="price">
   <div class="container">
     <HeaderBlock data={HeaderData} />
     <main class="main" role="main">
-      <section class="price-header" role="rowgroup">
+      <section class="price-header">
         {
           price.map((item) => (
-            <div class:list={["price-header__item", `price-header__item-${item.id}`]} role="columnheader">
+            <div class:list={["price-header__item", `price-header__item-${item.id}`]}>
               <h3 class:list={["header-item", `${item.id}--color`]}>{item.title}</h3>
               <Image class="header-img" src={item.imgSrc} alt={item.alt} width={44} height={44} />
             </div>

@@ -13,13 +13,13 @@ const iconLinks = [
 ];
 ---
 
-<nav class="nav-social" aria-label="Соціальні мережі" data-menu={breakpoint}>
-  <ul class="nav-items" role="list" data-menu={breakpoint}>
+<nav class="nav-social" data-menu={breakpoint}>
+  <ul class="nav-items" data-menu={breakpoint}>
     {
       iconLinks.map((item) => (
-        <li class="nav-item" role="none">
+        <li class="nav-item">
           <a class="nav-item__link" href={item.href} aria-label={item.name}>
-            <Icon name={`icon-${item.name}`} class="icon" aria-hidden="true"/>
+            <Icon name={`icon-${item.name}`} class="icon" />
           </a>
         </li>
       ))

@@ -52,8 +52,11 @@ const ListContent = [
         <Image class="creation__images" 
         src={srcImg}
         alt="cat"
-        width={374}
-        height={582}
+        widths={[300, 374]}
+        sizes={`(max-width: 756px) 300px, 374px`}
+        width="374"
+        height="582"
+         quality="80"
         />
         </div>
 
@@ -107,7 +110,6 @@ const ListContent = [
     position: relative;
     width: 87%;
     height: 90%;
-    background-color: red;
     border-radius: 12px;
     box-shadow: 5px 6px 17px rgba(21, 19, 32, 0.1);
   }

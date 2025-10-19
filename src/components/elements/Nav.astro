@@ -16,7 +16,8 @@ const NavLinks = [
   <ul class="menu-list" data-menu={breakpoint}>
     {
       NavLinks.map((item, index) => (
-        <li class={`menu-item ${index === 0 ? "menu-item--activ" : ""}`} data-menu={breakpoint}>
+        // <li class={`menu-item ${index === 0 ? "menu-item--activ" : ""}`} data-menu={breakpoint}>
+         <li class="menu-item" data-menu={breakpoint}>
           <a class="menu-item__link" href={`#${item.href}`} title={item.title}>
             {item.title}
           </a>

@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import sound from "../assets/sound/nav-sound.mp3";
-import imgDesign from "../assets/images/advantages/design-img.jpg";
+import imgDesign from "../assets/images/advantages/design-img.png";
 import imgDev from "../assets/images/advantages/development-img.png";
 import imgContent from "../assets/images/advantages/content-img.png";
 import imgSeo from "../assets/images/advantages/seo-img.jpeg";
@@ -166,8 +166,11 @@ const cards = [
                     class="card-img__img-box__image"
                     src={card.imgSrc}
                     alt={card.title}
-                    width={383}
-                    height={383}
+                    widths={[320, 383]}
+                    sizes={`(max-width: 756px) 320px, 383px`}
+                    width="383"
+                    height="383"
+                    quality="70"
                   />
                 </div>
               </div>
@@ -524,7 +527,7 @@ const cards = [
     width: 22px;
     height: 22px;
 
-    background-image: url("../icons/icon-ball-2.svg");
+    background-image: url("../assets/images/ball.webp");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;

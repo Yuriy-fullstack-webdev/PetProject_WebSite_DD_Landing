@@ -73,6 +73,8 @@ const portfolio = [
                       <Image
                         class="embla__slide-img__img"
                         src={portfolio.imgSrc}
+                        widths={[280, 320, 350]}
+                        sizes={`(max-width: 460px) 280px, (max-width: 756px) 320px, 350px`}
                         width={350}
                         height={500}
                         alt={`Web site ${portfolio.title}`}

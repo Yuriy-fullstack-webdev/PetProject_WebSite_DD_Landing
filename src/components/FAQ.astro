@@ -73,7 +73,11 @@ const HeaderData = [
       </section>
       <div class="faq-img">
         <div class="faq-img__box">
-          <Image class="faq-img__box__image" src={imgSrc} alt="cat" width={} height={} />
+
+          <Image class="faq-img__box__image" src={imgSrc} alt="cat"
+          widths={[280, 335]}
+          sizes={`(max-width: 756px) 280px, 335px`}
+          width="335" height="474" />
         </div>
       </div>
     </div>

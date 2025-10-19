@@ -28,12 +28,19 @@ import imgBall from "../assets/images/ball.png";
           </div>
           <div class="hero-order">
             <ButtonOrder color="purple" breakpoint="mob" />
-            <LinkConsultation breakpoint="mob"/>
+            <LinkConsultation breakpoint="mob" />
           </div>
         </section>
         <section class="img-wrap">
           <div class="img-wrap__box">
-            <Image class="img-wrap__box__image" src={imgCat} alt="cat" />
+            <Image class="img-wrap__box__image"
+            src={imgCat}
+            widths={[360, 435]}
+              sizes={`(max-width: 756px) 360px, 435px`}
+              alt="cat"
+              width="435" height="435"
+              quality="70"
+            />
           </div>
           <div class="ball-bg ball-bg__size ball-bg__size--xs ball-bg--top0">
             <Image class="ball" src={imgBall} alt="ball" />
@@ -127,7 +134,7 @@ import imgBall from "../assets/images/ball.png";
     content: "";
     top: 0;
     left: 0;
-    background-image: url("../assets/images/ball.png");
+    background-image: url("../assets/images/ball.webp");
     background-size: 100% 100%; /* Растягивает изображение по всей площади псевдоэлемента */
     background-repeat: no-repeat;
     width: clamp(0.875rem, 0.551rem + 1.128vw, 1.25rem);
@@ -169,7 +176,10 @@ import imgBall from "../assets/images/ball.png";
   }
 
   .img-wrap__box__image {
-    position: absolute;
+    /* position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); */
     width: 128%;
     height: auto;
     object-fit: cover;
@@ -254,14 +264,13 @@ import imgBall from "../assets/images/ball.png";
       min-width: 244px;
     }
     .hero-order {
-margin-top: 36px;
-  }
+      margin-top: 36px;
+    }
   }
 
   @media (max-width: 460px) {
     .hero-info {
-  row-gap: 24px;    
+      row-gap: 24px;
     }
-    
   }
 </style>

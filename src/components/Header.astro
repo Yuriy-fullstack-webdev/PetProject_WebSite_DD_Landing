@@ -11,77 +11,76 @@ import NavSocialMedia from "./elements/NavSocialMedia.astro";
       <LogoDD />
       <Nav breakpoint="desktop" />
       <NavSocialMedia />
-      <button class="button">
-        <Icon name="icon-hamburger-open" class="icon icon-hamburger--activ" />
-        <Icon name="icon-hamburger-close" class="icon" />
+      <button class="button" aria-controls="mobile-menu" aria-expanded="false" aria-label="Переключити мобільне меню">
+        <Icon name="icon-hamburger-open" class="icon icon-hamburger--activ" aria-hidden="true" />
+        <Icon name="icon-hamburger-close" class="icon" aria-hidden="true" />
       </button>
       <!-- <div class="menu-mob menu-mob--activ"> -->
-      <div class="menu-mob">
-        <Nav breakpoint="mob"/>
-        <NavSocialMedia breakpoint="mob"/>
+      <div class="menu-mob" id="mobile-menu" aria-hidden="true">
+        <Nav breakpoint="mob" />
+        <NavSocialMedia breakpoint="mob" />
       </div>
     </div>
   </div>
 </header>
 <script>
-/* меню активация */
+  /* меню активация */
 
-const button = document.querySelector<HTMLButtonElement>('.button');
-const menu = document.querySelector<HTMLDivElement>('.menu-mob');
+  const button = document.querySelector<HTMLButtonElement>(".button");
+  const menu = document.querySelector<HTMLDivElement>(".menu-mob");
 
-const icons: NodeListOf<HTMLElement> | null = button ? button.querySelectorAll('.icon') : null;
+  const icons: NodeListOf<HTMLElement> | null = button ? button.querySelectorAll(".icon") : null;
 
-let openIcon: HTMLElement | null = null;
-let closeIcon: HTMLElement | null = null;
+  let openIcon: HTMLElement | null = null;
+  let closeIcon: HTMLElement | null = null;
 
-if (icons && icons.length >= 2) {
+  if (icons && icons.length >= 2) {
     // Проходим по найденным иконкам, чтобы определить, какая из них какая
-    icons.forEach(icon => {
-        if (icon.classList.contains('icon-hamburger--activ')) {
-            openIcon = icon; 
-        } else {
-            closeIcon = icon;
-        }
+    icons.forEach((icon) => {
+      if (icon.classList.contains("icon-hamburger--activ")) {
+        openIcon = icon;
+      } else {
+        closeIcon = icon;
+      }
     });
-}
+  }
 
-// --------------------------------------------------------------------------------
-// 3. Главная проверка на наличие всех элементов перед инициализацией логики
-// --------------------------------------------------------------------------------
-if (button && menu && openIcon && closeIcon) {
-    
+  // --------------------------------------------------------------------------------
+  // 3. Главная проверка на наличие всех элементов перед инициализацией логики
+  // --------------------------------------------------------------------------------
+  if (button && menu && openIcon && closeIcon) {
     // Функция, которая переключает состояние меню и иконок
     const toggleMenu = (): void => {
-        menu!.classList.toggle('menu-mob--activ');
-        openIcon!.classList.toggle('icon-hamburger--activ');
-        closeIcon!.classList.toggle('icon-hamburger--activ');
+      menu!.classList.toggle("menu-mob--activ");
+      openIcon!.classList.toggle("icon-hamburger--activ");
+      closeIcon!.classList.toggle("icon-hamburger--activ");
     };
 
     // 4. Обработчик события для кнопки
-    // Используем bind(this) или стрелочную функцию, чтобы сохранить контекст, 
+    // Используем bind(this) или стрелочную функцию, чтобы сохранить контекст,
     // хотя в данном случае это не критично.
-    button.addEventListener('click', toggleMenu);
+    button.addEventListener("click", toggleMenu);
 
     // 5. Обработчик события для закрытия меню при клике вне его
     const closeMenuOnOutsideClick = (event: MouseEvent): void => {
-        const target = event.target as HTMLElement;
+      const target = event.target as HTMLElement;
 
-        if (
-            menu.classList.contains('menu-mob--activ') &&
-            !menu.contains(target) && // Проверяем, что клик не внутри меню
-            !button.contains(target) // Проверяем, что клик не на кнопке
-        ) {
-            toggleMenu();
-        }
+      if (
+        menu.classList.contains("menu-mob--activ") &&
+        !menu.contains(target) && // Проверяем, что клик не внутри меню
+        !button.contains(target) // Проверяем, что клик не на кнопке
+      ) {
+        toggleMenu();
+      }
     };
-    
-    document.addEventListener('click', closeMenuOnOutsideClick);
 
-} else {
+    document.addEventListener("click", closeMenuOnOutsideClick);
+  } else {
     // Вывод ошибки в консоль, если какой-то элемент не был найден
-    console.error("TS Error: Failed to initialize hamburger menu. One or more required elements (button, menu, or two icons) were not found.");
-}
-
+    console.error(
+      "TS Error: Failed to initialize hamburger menu. One or more required elements (button, menu, or two icons) were not found."
+    );
+  }
 
   document.addEventListener("DOMContentLoaded", () => {
     const header = document.querySelector(".header");
@@ -124,7 +123,6 @@ if (button && menu && openIcon && closeIcon) {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    
   }
 
   .scrolled-bg {
@@ -162,22 +160,22 @@ if (button && menu && openIcon && closeIcon) {
     }
 
     .menu-mob {
-    position: absolute;
-    z-index: 1;
-    display: none;
-    top: var(--header-height);
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    border-top: 1px dashed rgba(239, 239, 239, 0.25);
-background-color: var(--bg-primary);      
-  }
+      position: absolute;
+      z-index: 1;
+      display: none;
+      top: var(--header-height);
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      border-top: 1px dashed rgba(239, 239, 239, 0.25);
+      background-color: var(--bg-primary);
+    }
 
     .menu-mob--activ {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 45px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 45px;
     }
   }
 </style>

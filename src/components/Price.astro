@@ -101,7 +101,7 @@ const devSection = price.find((item) => item.id === "dev");
         }
       </section>
       <section class="price-main">
-        <ul class="price-list" aria-label="Тарифи на дизайн">
+        <ul class="price-list">
           {
             designSection &&
               designSection.desc.map((item) => (
@@ -127,7 +127,7 @@ const devSection = price.find((item) => item.id === "dev");
           }
         </ul>
 
-        <ul class="price-list" aria-label="Тарифи на розробку">
+        <ul class="price-list">
           {
             devSection &&
               devSection.desc.map((item, itemIndex) => (

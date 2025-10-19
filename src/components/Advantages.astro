@@ -200,78 +200,78 @@ const cards = [
   </section>
 </section>
 
-<script>
-  const buttons: NodeListOf<HTMLButtonElement> = document.querySelectorAll(".nav-item__button");
-  const audio: HTMLAudioElement | null = document.querySelector(".nav-sound--hover");
-  let audioEnabled = false;
-  {/* Проверяем, существует ли аудиоэлемент */}
-  if (!audio) {
-    console.error("Audio element with class '.nav-sound--hover' not found. Sound feature disabled.");
-  } else {
-    document.addEventListener( "click", () => {
-        audioEnabled = true; },
-      { once: true }
-    );
-    buttons.forEach((button: HTMLButtonElement) => {
-      button.addEventListener("mouseenter", (): void => {
-        if (audioEnabled) {
-          {/* Відтворюємо, тільки якщо користувач вже клікав */}
-          audio.currentTime = 0;
-          audio.volume = 0.1;
-          audio.play().catch((error) => {
-            console.warn("Audio playback initiated by mouseenter failed:", error);
-          });
-        }
-      });
+<script src="../js/advantages.js">
+//   const buttons: NodeListOf<HTMLButtonElement> = document.querySelectorAll(".nav-item__button");
+//   const audio: HTMLAudioElement | null = document.querySelector(".nav-sound--hover");
+//   let audioEnabled = false;
+//   {/* Проверяем, существует ли аудиоэлемент */}
+//   if (!audio) {
+//     console.error("Audio element with class '.nav-sound--hover' not found. Sound feature disabled.");
+//   } else {
+//     document.addEventListener( "click", () => {
+//         audioEnabled = true; },
+//       { once: true }
+//     );
+//     buttons.forEach((button: HTMLButtonElement) => {
+//       button.addEventListener("mouseenter", (): void => {
+//         if (audioEnabled) {
+//           {/* Відтворюємо, тільки якщо користувач вже клікав */}
+//           audio.currentTime = 0;
+//           audio.volume = 0.1;
+//           audio.play().catch((error) => {
+//             console.warn("Audio playback initiated by mouseenter failed:", error);
+//           });
+//         }
+//       });
 
-      button.addEventListener("mouseleave", (): void => {
-        audio.pause();
-        audio.currentTime = 0;
-      });
-    });
-  }
+//       button.addEventListener("mouseleave", (): void => {
+//         audio.pause();
+//         audio.currentTime = 0;
+//       });
+//     });
+//   }
 
-  const navActiv = document.querySelector(".nav-item--activ");
-  const navList = document.querySelectorAll(".nav-item");
-  const cardList = document.querySelectorAll('.card[role="tabpanel"]');
+//   const navActiv = document.querySelector(".nav-item--activ");
+//   const navList = document.querySelectorAll(".nav-item");
+//   const cardList = document.querySelectorAll('.card[role="tabpanel"]');
 
-  navList.forEach((item) =>
-    item.addEventListener("click", () => {
-      {/* 1. Сначала удаляем активный класс со ВСЕХ элементов в navList*/}
-      navList.forEach((navItem) => {
-        navItem.classList.remove("nav-item--activ");
-      });
-      {/* 2. Добавляем активный класс ТОЛЬКО к элементу, на который нажали (item)*/}
-      item.classList.add("nav-item--activ");
-    })
-  );
+//   navList.forEach((item) =>
+//     item.addEventListener("click", () => {
+//       {/* 1. Сначала удаляем активный класс со ВСЕХ элементов в navList*/}
+//       navList.forEach((navItem) => {
+//         navItem.classList.remove("nav-item--activ");
+//       });
+//       {/* 2. Добавляем активный класс ТОЛЬКО к элементу, на который нажали (item)*/}
+//       item.classList.add("nav-item--activ");
+//     })
+//   );
 
-  buttons.forEach((button) => {
-    let actibTabId = "";
-    button.addEventListener("click", () => {
-      {/* 1. Сброс ВСЕХ кнопок: Делаем их неактивными*/}
-      buttons.forEach((otherButton) => {
-        otherButton.setAttribute("aria-selected", "false");
-        otherButton.setAttribute("tabindex", "0");
-      });
-{/* 2. Активация нажатой кнопки: Делаем ЕЁ активной*/}
-{/* Устанавливаем aria-selected в 'true' (активно) tabindex в '-1'*/}
-      button.setAttribute("aria-selected", "true");
-      button.setAttribute("tabindex", "-1");
+//   buttons.forEach((button) => {
+//     let actibTabId = "";
+//     button.addEventListener("click", () => {
+//       {/* 1. Сброс ВСЕХ кнопок: Делаем их неактивными*/}
+//       buttons.forEach((otherButton) => {
+//         otherButton.setAttribute("aria-selected", "false");
+//         otherButton.setAttribute("tabindex", "0");
+//       });
+// {/* 2. Активация нажатой кнопки: Делаем ЕЁ активной*/}
+// {/* Устанавливаем aria-selected в 'true' (активно) tabindex в '-1'*/}
+//       button.setAttribute("aria-selected", "true");
+//       button.setAttribute("tabindex", "-1");
 
-      actibTabId = button.id;
+//       actibTabId = button.id;
 
-      cardList.forEach((card) => {
-        card.setAttribute("hidden", "");
-        card.setAttribute("tabindex", "-1");
-        let cardId = card.getAttribute("aria-labelledby");
-        if (cardId === actibTabId) {
-          card.removeAttribute("hidden");
-          card.setAttribute("tabindex", "0");
-        }
-      });
-    });
-  });
+//       cardList.forEach((card) => {
+//         card.setAttribute("hidden", "");
+//         card.setAttribute("tabindex", "-1");
+//         let cardId = card.getAttribute("aria-labelledby");
+//         if (cardId === actibTabId) {
+//           card.removeAttribute("hidden");
+//           card.setAttribute("tabindex", "0");
+//         }
+//       });
+//     });
+//   });
 </script>
 
 <style>

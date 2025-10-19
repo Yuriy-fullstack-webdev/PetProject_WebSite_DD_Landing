@@ -12,12 +12,12 @@ const NavLinks = [
 ];
 ---
 
-<nav class="menu" data-menu={breakpoint}>
-  <ul class="menu-list" data-menu={breakpoint}>
+<nav class="menu" aria-label="Головна навігація" data-menu={breakpoint}>
+  <ul class="menu-list" role="list" data-menu={breakpoint}>
     {
       NavLinks.map((item, index) => (
         // <li class={`menu-item ${index === 0 ? "menu-item--activ" : ""}`} data-menu={breakpoint}>
-         <li class="menu-item" data-menu={breakpoint}>
+         <li class="menu-item" data-menu={breakpoint} role="none">
           <a class="menu-item__link" href={`#${item.href}`} title={item.title}>
             {item.title}
           </a>

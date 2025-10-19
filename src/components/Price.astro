@@ -86,14 +86,14 @@ const designSection = price.find((item) => item.id === "design");
 const devSection = price.find((item) => item.id === "dev");
 ---
 
-<section id="price" class="price">
+<section id="price" class="price" role="region" aria-label="Ціни та тарифи на послуги">
   <div class="container">
     <HeaderBlock data={HeaderData} />
-    <main class="main">
-      <section class="price-header">
+    <main class="main" role="main">
+      <section class="price-header" role="rowgroup">
         {
           price.map((item) => (
-            <div class:list={["price-header__item", `price-header__item-${item.id}`]}>
+            <div class:list={["price-header__item", `price-header__item-${item.id}`]} role="columnheader">
               <h3 class:list={["header-item", `${item.id}--color`]}>{item.title}</h3>
               <Image class="header-img" src={item.imgSrc} alt={item.alt} width={44} height={44} />
             </div>
@@ -101,13 +101,13 @@ const devSection = price.find((item) => item.id === "dev");
         }
       </section>
       <section class="price-main">
-        <ul class="price-list">
+        <ul class="price-list" role="rowgroup" aria-label="Тарифи на дизайн">
           {
             designSection &&
               designSection.desc.map((item) => (
-                <li class="price-list__item">
-                  <h4 class:list={["price-list__item-title", "design--color"]}>{item.title}</h4>
-                  <div class="price-list__item-content">
+                <li class="price-list__item" role="row">
+                  <h4 class:list={["price-list__item-title", "design--color"]} role="rowheader" >{item.title} </h4>
+                  <div class="price-list__item-content" role="cell">
                     <div class:list={["item-content", "design-content"]}>
                       <p class="item-content__desc">{item.text}</p>
                     </div>
@@ -127,13 +127,13 @@ const devSection = price.find((item) => item.id === "dev");
           }
         </ul>
 
-        <ul class="price-list">
+        <ul class="price-list" role="rowgroup" aria-label="Тарифи на розробку">
           {
             devSection &&
               devSection.desc.map((item, itemIndex) => (
-                <li class="price-list__item">
-                  <h4 class:list={["price-list__item-title", "dev--color"]}>{item.title}</h4>
-                  <div class="price-list__item-content">
+                <li class="price-list__item" role="row">
+                  <h4 class:list={["price-list__item-title", "dev--color"]} role="rowheader">{item.title} </h4>
+                  <div class="price-list__item-content" role="cell">
                     <div class:list={["item-content", "dev-content"]}>
                       <p class="item-content__desc">{item.text}</p>
 

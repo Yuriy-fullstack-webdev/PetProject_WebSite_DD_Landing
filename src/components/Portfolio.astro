@@ -53,6 +53,8 @@ const portfolio = [
     text: "Сайт, розроблений із застосуванням адаптивних веб-технологій є онлайн-платформою друкарні, що надає користувачам можливість ознайомитися з переліком послуг, переглянути приклади робіт, замовити друк поліграфічної продукції та отримати консультацію.",
   },
 ];
+
+const portfolioLength = portfolio.length;
 ---
 
 <section id="portfolio" class="portfolio">
@@ -62,12 +64,17 @@ const portfolio = [
     </div>
     <main>
       <!--Каруселі -->
-      <div class="embla">
-        <div class="embla__viewport">
+      <div class="embla" role="region" aria-label="Портфоліо, слайдер проєктів">
+        <div class="embla__viewport" tabindex="0">
           <div class="embla__container">
             {
-              portfolio.map((portfolio) => (
-                <section class="embla__slide">
+              portfolio.map((portfolio, index) => (
+                <section
+                  class="embla__slide"
+                  role="group"
+                  aria-roledescription="slide"
+                  aria-label={`${portfolio.title} ${index + 1} з ${portfolioLength}`}
+                >
                   <div class="embla__slide-slide">
                     <div class="embla__slide-img">
                       <Image
@@ -77,7 +84,7 @@ const portfolio = [
                         sizes={`(max-width: 460px) 280px, (max-width: 756px) 320px, 350px`}
                         width={350}
                         height={500}
-                        alt={`Web site ${portfolio.title}`}
+                        alt={`Веб-сайт: ${portfolio.title}. ${portfolio.text}`}
                       />
                     </div>
                     <div class="embla__slide-content">
@@ -122,7 +129,6 @@ const portfolio = [
     background-color: var(--bg-white);
   }
   .header-wrap {
-
   }
   /** Стилізація каруселі */
   .embla {

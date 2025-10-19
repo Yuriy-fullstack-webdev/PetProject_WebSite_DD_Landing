@@ -7,19 +7,19 @@ const { breakpoint } = Astro.props;
 }
 
 const iconLinks = [
-  { name: "icon-instagram", href: "https://www.instagram.com/neuro_merejka/" },
-  { name: "icon-telegram", href: "https://t.me/DesignDevelopmentUA" },
-  { name: "icon-telephone", href: "tel:+380506005222" },
+  { name: "instagram", href: "https://www.instagram.com/neuro_merejka/" },
+  { name: "telegram", href: "https://t.me/DesignDevelopmentUA" },
+  { name: "telephone", href: "tel:+380506005222" },
 ];
 ---
 
-<nav class="nav-social" data-menu={breakpoint}>
+<nav class="nav-social" aria-label="Соціальні мережі" data-menu={breakpoint}>
   <ul class="nav-items" data-menu={breakpoint}>
     {
       iconLinks.map((item) => (
         <li class="nav-item">
-          <a class="nav-item__link" href={item.href}>
-            <Icon name={item.name} class="icon" />
+          <a class="nav-item__link" href={item.href} aria-label={item.name}>
+            <Icon name={`icon-${item.name}`}class="icon" />
           </a>
         </li>
       ))

@@ -23,85 +23,85 @@ import NavSocialMedia from "./elements/NavSocialMedia.astro";
     </div>
   </div>
 </header>
-<script>
+<script src="../js/header-nav.js">
   /* меню активация */
 
-  const button = document.querySelector<HTMLButtonElement>(".button");
-  const menu = document.querySelector<HTMLDivElement>(".menu-mob");
+  // const button = document.querySelector<HTMLButtonElement>(".button");
+  // const menu = document.querySelector<HTMLDivElement>(".menu-mob");
 
-  const icons: NodeListOf<HTMLElement> | null = button ? button.querySelectorAll(".icon") : null;
+  // const icons: NodeListOf<HTMLElement> | null = button ? button.querySelectorAll(".icon") : null;
 
-  let openIcon: HTMLElement | null = null;
-  let closeIcon: HTMLElement | null = null;
+  // let openIcon: HTMLElement | null = null;
+  // let closeIcon: HTMLElement | null = null;
 
-  if (icons && icons.length >= 2) {
-    // Проходим по найденным иконкам, чтобы определить, какая из них какая
-    icons.forEach((icon) => {
-      if (icon.classList.contains("icon-hamburger--activ")) {
-        openIcon = icon;
-      } else {
-        closeIcon = icon;
-      }
-    });
-  }
+  // if (icons && icons.length >= 2) {
+  //   // Проходим по найденным иконкам, чтобы определить, какая из них какая
+  //   icons.forEach((icon) => {
+  //     if (icon.classList.contains("icon-hamburger--activ")) {
+  //       openIcon = icon;
+  //     } else {
+  //       closeIcon = icon;
+  //     }
+  //   });
+  // }
 
-  // --------------------------------------------------------------------------------
-  // 3. Главная проверка на наличие всех элементов перед инициализацией логики
-  // --------------------------------------------------------------------------------
-  if (button && menu && openIcon && closeIcon) {
-    // Функция, которая переключает состояние меню и иконок
-    const toggleMenu = (): void => {
-      menu!.classList.toggle("menu-mob--activ");
-      openIcon!.classList.toggle("icon-hamburger--activ");
-      closeIcon!.classList.toggle("icon-hamburger--activ");
-    };
+  // // --------------------------------------------------------------------------------
+  // // 3. Главная проверка на наличие всех элементов перед инициализацией логики
+  // // --------------------------------------------------------------------------------
+  // if (button && menu && openIcon && closeIcon) {
+  //   // Функция, которая переключает состояние меню и иконок
+  //   const toggleMenu = (): void => {
+  //     menu!.classList.toggle("menu-mob--activ");
+  //     openIcon!.classList.toggle("icon-hamburger--activ");
+  //     closeIcon!.classList.toggle("icon-hamburger--activ");
+  //   };
 
-    // 4. Обработчик события для кнопки
-    // Используем bind(this) или стрелочную функцию, чтобы сохранить контекст,
-    // хотя в данном случае это не критично.
-    button.addEventListener("click", toggleMenu);
+  //   // 4. Обработчик события для кнопки
+  //   // Используем bind(this) или стрелочную функцию, чтобы сохранить контекст,
+  //   // хотя в данном случае это не критично.
+  //   button.addEventListener("click", toggleMenu);
 
-    // 5. Обработчик события для закрытия меню при клике вне его
-    const closeMenuOnOutsideClick = (event: MouseEvent): void => {
-      const target = event.target as HTMLElement;
+  //   // 5. Обработчик события для закрытия меню при клике вне его
+  //   const closeMenuOnOutsideClick = (event: MouseEvent): void => {
+  //     const target = event.target as HTMLElement;
 
-      if (
-        menu.classList.contains("menu-mob--activ") &&
-        !menu.contains(target) && // Проверяем, что клик не внутри меню
-        !button.contains(target) // Проверяем, что клик не на кнопке
-      ) {
-        toggleMenu();
-      }
-    };
+  //     if (
+  //       menu.classList.contains("menu-mob--activ") &&
+  //       !menu.contains(target) && // Проверяем, что клик не внутри меню
+  //       !button.contains(target) // Проверяем, что клик не на кнопке
+  //     ) {
+  //       toggleMenu();
+  //     }
+  //   };
 
-    document.addEventListener("click", closeMenuOnOutsideClick);
-  } else {
-    // Вывод ошибки в консоль, если какой-то элемент не был найден
-    console.error(
-      "TS Error: Failed to initialize hamburger menu. One or more required elements (button, menu, or two icons) were not found."
-    );
-  }
+  //   document.addEventListener("click", closeMenuOnOutsideClick);
+  // } else {
+  //   // Вывод ошибки в консоль, если какой-то элемент не был найден
+  //   console.error(
+  //     "TS Error: Failed to initialize hamburger menu. One or more required elements (button, menu, or two icons) were not found."
+  //   );
+  // }
 
-  document.addEventListener("DOMContentLoaded", () => {
-    const header = document.querySelector(".header");
-    if (!header) {
-      console.error("Элемент с классом .header не найден. Скрипт остановлен.");
-      return;
-    }
-    const rootStyles = getComputedStyle(document.documentElement);
-    const headerHeightValue = rootStyles.getPropertyValue("--header-height").trim();
-    const scrollThreshold = parseFloat(headerHeightValue) || 118; // 118 как запасной вариант
+  // document.addEventListener("DOMContentLoaded", () => {
+  //   const header = document.querySelector(".header");
+  //   if (!header) {
+  //     console.error("Элемент с классом .header не найден. Скрипт остановлен.");
+  //     return;
+  //   }
+  //   const rootStyles = getComputedStyle(document.documentElement);
+  //   const headerHeightValue = rootStyles.getPropertyValue("--header-height").trim();
+  //   const scrollThreshold = parseFloat(headerHeightValue) || 118; // 118 как запасной вариант
 
-    function handleScroll() {
-      if (window.scrollY >= scrollThreshold) {
-        header!.classList.add("scrolled-bg");
-      } else {
-        header!.classList.remove("scrolled-bg");
-      }
-    }
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
-  });
+  //   function handleScroll() {
+  //     if (window.scrollY >= scrollThreshold) {
+  //       header!.classList.add("scrolled-bg");
+  //     } else {
+  //       header!.classList.remove("scrolled-bg");
+  //     }
+  //   }
+  //   window.addEventListener("scroll", handleScroll);
+  //   handleScroll();
+  // });
 </script>
 <style>
   .header {

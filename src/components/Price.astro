@@ -101,13 +101,13 @@ const devSection = price.find((item) => item.id === "dev");
         }
       </section>
       <section class="price-main">
-        <ul class="price-list" role="rowgroup" aria-label="Тарифи на дизайн">
+        <ul class="price-list" aria-label="Тарифи на дизайн">
           {
             designSection &&
               designSection.desc.map((item) => (
-                <li class="price-list__item" role="row">
-                  <h4 class:list={["price-list__item-title", "design--color"]} role="rowheader" >{item.title} </h4>
-                  <div class="price-list__item-content" role="cell">
+                <li class="price-list__item" >
+                  <h4 class:list={["price-list__item-title", "design--color"]} >{item.title} </h4>
+                  <div class="price-list__item-content">
                     <div class:list={["item-content", "design-content"]}>
                       <p class="item-content__desc">{item.text}</p>
                     </div>
@@ -127,13 +127,13 @@ const devSection = price.find((item) => item.id === "dev");
           }
         </ul>
 
-        <ul class="price-list" role="rowgroup" aria-label="Тарифи на розробку">
+        <ul class="price-list" aria-label="Тарифи на розробку">
           {
             devSection &&
               devSection.desc.map((item, itemIndex) => (
-                <li class="price-list__item" role="row">
-                  <h4 class:list={["price-list__item-title", "dev--color"]} role="rowheader">{item.title} </h4>
-                  <div class="price-list__item-content" role="cell">
+                <li class="price-list__item">
+                  <h4 class:list={["price-list__item-title", "dev--color"]}>{item.title} </h4>
+                  <div class="price-list__item-content">
                     <div class:list={["item-content", "dev-content"]}>
                       <p class="item-content__desc">{item.text}</p>
 

@@ -9,4 +9,6 @@ export default defineConfig({
     mdx(),
     icon()
   ],
+  site: 'https://dd.co.ua', // УКАЖИТЕ ТОЛЬКО АДРЕС ВАШЕГО ЛЕНДИНГА,
+  trailingSlash: 'never', // без слеша в конце домена
 });

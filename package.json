@@ -10,8 +10,10 @@
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.6",
+    "@astrojs/sitemap": "^3.6.0",
     "astro": "^5.14.1",
     "astro-icon": "^1.1.5",
+    "astro-robots-txt": "^1.0.0",
     "embla-carousel": "^8.6.0"
   }
 }

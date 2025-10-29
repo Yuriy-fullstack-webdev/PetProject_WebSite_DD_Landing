@@ -12,11 +12,12 @@ import imgBall from "../assets/images/ball.png";
       <div class="hero-wrap">
         <section class="hero-info">
           <p class="hero-subtitle">Ваш бізнес заслуговує на яскравий онлайн-старт!</p>
-          <h1 class="hero-title">
+          <div class="hero-title">
+            <h1 class="hero-title--visually-hidden">Design and Development</h1>
             <span class="text-nowrap">Des<span class="hero-title__ball ball-decor">i</span>gn</span><br />
             <span>+&nbsp;Development</span>
             <span class="ball-decor ball-decor1"></span>
-          </h1>
+          </div>
           <div class="hero-text">
             <p>
               Ми – художники цифрового світу, які створюють полотна, що зачаровують, надихають та приносять результат.
@@ -109,7 +110,19 @@ import imgBall from "../assets/images/ball.png";
     font-weight: 800;
     line-height: var(--line-height-s);
   }
-
+.hero-title--visually-hidden {
+position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+      font-size: 4.5rem;
+    font-weight: 800;
+    line-height: var(--line-height-s);
+}
   .hero-text {
     color: var(--text-gray-300);
     font-size: var(--font-size-18-14);
